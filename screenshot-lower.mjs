@@ -1,0 +1,10 @@
+import puppeteer from 'puppeteer';
+const browser = await puppeteer.launch({ headless: 'new', args: ['--no-sandbox'] });
+const page = await browser.newPage();
+await page.setViewport({ width: 1440, height: 900 });
+await page.goto('http://localhost:3000', { waitUntil: 'networkidle2' });
+const totalHeight = await page.evaluate(() => document.body.scrollHeight);
+await page.screenshot({ path: 'temporary screenshots/ss-who.png', clip: { x: 0, y: totalHeight - 2800, width: 1440, height: 1000 } });
+await page.screenshot({ path: 'temporary screenshots/ss-footer.png', clip: { x: 0, y: totalHeight - 1200, width: 1440, height: 1200 } });
+console.log('Total height:', totalHeight);
+await browser.close();
