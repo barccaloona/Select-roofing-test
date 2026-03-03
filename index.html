@@ -357,7 +357,7 @@
     }
     .services__grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 24px;
     }
     .service-card {
@@ -396,7 +396,16 @@
       font-size: 14px;
       color: var(--gray-mid);
       line-height: 1.6;
-      margin-bottom: 22px;
+      margin-bottom: 14px;
+    }
+    .service-card__brands {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue-accent);
+      margin-bottom: 20px;
+      line-height: 1.8;
     }
 
     /* ─── PARTNERS ──────────────────────────────────────────────── */
@@ -889,8 +898,6 @@
           <a href="siding.html" class="nav__dropdown-item">Siding</a>
           <a href="windows.html" class="nav__dropdown-item">Windows &amp; Doors</a>
           <a href="gutters.html" class="nav__dropdown-item">Gutters</a>
-          <a href="insulation.html" class="nav__dropdown-item">Insulation</a>
-          <a href="emergency.html" class="nav__dropdown-item nav__dropdown-item--emergency">Emergency 24/7</a>
         </div>
       </div>
       <a href="#about" class="nav__link">About</a>
@@ -908,8 +915,6 @@
   <a href="siding.html" style="padding-left:36px;font-size:12px;opacity:0.75">Siding</a>
   <a href="windows.html" style="padding-left:36px;font-size:12px;opacity:0.75">Windows &amp; Doors</a>
   <a href="gutters.html" style="padding-left:36px;font-size:12px;opacity:0.75">Gutters</a>
-  <a href="insulation.html" style="padding-left:36px;font-size:12px;opacity:0.75">Insulation</a>
-  <a href="emergency.html" style="padding-left:36px;font-size:12px;color:#e07a7a">Emergency 24/7</a>
   <a href="#about">About</a>
   <a href="contact.html">Contact</a>
   <a href="contact.html">Free Assessment</a>
@@ -932,7 +937,7 @@
     <div class="services__header anim-fade-up">
       <span class="section-label">What We Do</span>
       <h2 class="section-title section-title--center">Our Services</h2>
-      <p style="color:var(--gray-mid);max-width:520px;margin:0 auto;font-size:15px;">From full roof replacements to emergency repairs, we handle every project with the precision and care your home deserves.</p>
+      <p style="color:var(--gray-mid);max-width:520px;margin:0 auto;font-size:15px;">From full roof replacements to new windows and gutters, we handle every project with the precision and care your home deserves.</p>
     </div>
     <div class="services__grid">
 
@@ -943,17 +948,8 @@
         </div>
         <h3 class="service-card__title">Roofing</h3>
         <p class="service-card__desc">Complete roof replacements, repairs, and new installations using the highest-quality materials available.</p>
+        <p class="service-card__brands">Owens Corning · CertainTeed · Velux</p>
         <a href="roofing.html" class="btn btn--gold" style="font-size:11px;padding:9px 20px;">Learn More</a>
-      </div>
-
-      <!-- Doors & Windows -->
-      <div class="service-card">
-        <div class="service-card__icon">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-7-2h2V7h-2v10zm-4 0h2V7H8v10zm8 0h2V7h-2v10z"/></svg>
-        </div>
-        <h3 class="service-card__title">Doors &amp; Windows</h3>
-        <p class="service-card__desc">Energy-efficient door and window installations that enhance curb appeal and reduce heating costs.</p>
-        <a href="windows.html" class="btn btn--gold" style="font-size:11px;padding:9px 20px;">Learn More</a>
       </div>
 
       <!-- Siding -->
@@ -963,7 +959,19 @@
         </div>
         <h3 class="service-card__title">Siding</h3>
         <p class="service-card__desc">Durable, beautiful siding solutions that protect your home from the elements while elevating its appearance.</p>
+        <p class="service-card__brands">James Hardie · Azek</p>
         <a href="siding.html" class="btn btn--gold" style="font-size:11px;padding:9px 20px;">Learn More</a>
+      </div>
+
+      <!-- Windows & Doors -->
+      <div class="service-card">
+        <div class="service-card__icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-7-2h2V7h-2v10zm-4 0h2V7H8v10zm8 0h2V7h-2v10z"/></svg>
+        </div>
+        <h3 class="service-card__title">Windows &amp; Doors</h3>
+        <p class="service-card__desc">Energy-efficient window and door installations that enhance curb appeal and reduce heating costs.</p>
+        <p class="service-card__brands">ProVia</p>
+        <a href="windows.html" class="btn btn--gold" style="font-size:11px;padding:9px 20px;">Learn More</a>
       </div>
 
       <!-- Gutters -->
@@ -973,27 +981,8 @@
         </div>
         <h3 class="service-card__title">Gutters</h3>
         <p class="service-card__desc">Seamless gutter installation and cleaning to protect your foundation from water damage year-round.</p>
+        <p class="service-card__brands">Englert</p>
         <a href="gutters.html" class="btn btn--gold" style="font-size:11px;padding:9px 20px;">Learn More</a>
-      </div>
-
-      <!-- Insulation -->
-      <div class="service-card">
-        <div class="service-card__icon">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-        </div>
-        <h3 class="service-card__title">Insulation</h3>
-        <p class="service-card__desc">Superior attic and wall insulation to maximize energy efficiency and home comfort in every season.</p>
-        <a href="insulation.html" class="btn btn--gold" style="font-size:11px;padding:9px 20px;">Learn More</a>
-      </div>
-
-      <!-- Emergency -->
-      <div class="service-card">
-        <div class="service-card__icon">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L1 21h22L12 2zm0 3.5L20.5 19h-17L12 5.5zM11 10v4h2v-4h-2zm0 6v2h2v-2h-2z"/></svg>
-        </div>
-        <h3 class="service-card__title">Emergency 24/7</h3>
-        <p class="service-card__desc">Storms don't wait — neither do we. Our emergency crew responds fast to protect your home when you need it most.</p>
-        <a href="emergency.html" class="btn btn--gold" style="font-size:11px;padding:9px 20px;">Learn More</a>
       </div>
 
     </div>
@@ -1222,8 +1211,6 @@
           <a href="siding.html">Siding</a>
           <a href="gutters.html">Gutters</a>
           <a href="windows.html">Doors &amp; Windows</a>
-          <a href="insulation.html">Insulation</a>
-          <a href="emergency.html">Emergency Repair</a>
         </div>
       </div>
 
