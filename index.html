@@ -252,67 +252,73 @@
 
     /* ─── HERO ──────────────────────────────────────────────────── */
     .hero {
-      display: flex;
-      min-height: 88vh;
-      overflow: hidden;
-    }
-    .hero__text {
-      flex: 0 0 50%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 80px 56px 80px 80px;
-      position: relative;
-      background: var(--cream);
-    }
-    .hero__media {
-      flex: 1;
+      min-height: 68vh;
       display: flex;
       align-items: center;
       justify-content: center;
+      position: relative;
       overflow: hidden;
-      background: var(--navy-dark);
+      background: url('brand_assets/roofing.jpeg') center center / cover no-repeat;
     }
-    .hero__media video {
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(18,34,48,0.82) 0%, rgba(18,34,48,0.55) 60%, rgba(18,34,48,0.3) 100%);
+    }
+    .hero__text {
+      padding: 80px 48px;
+      max-width: 1060px;
       width: 100%;
-      height: 100%;
-      object-fit: contain;
-      mix-blend-mode: screen;
+      position: relative;
+      z-index: 2;
+      text-align: center;
     }
     .hero__eyebrow {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
       font-size: 11px;
       font-weight: 700;
-      letter-spacing: 0.25em;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--navy-mid);
-      margin-bottom: 18px;
+      color: var(--blue-light);
+      margin-bottom: 20px;
+    }
+    .hero__eyebrow::before,
+    .hero__eyebrow::after {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 2px;
+      background: var(--blue-light);
+      flex-shrink: 0;
     }
     .hero__title {
-      font-family: var(--font-body);
-      font-size: clamp(29px, 4vw, 55px);
-      font-weight: 900;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--navy-dark);
-      line-height: 1.1;
-      margin-bottom: 32px;
+      font-family: var(--font-head);
+      font-size: clamp(36px, 4.7vw, 68px);
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      color: rgba(255,255,255,0.9);
+      line-height: 1.15;
+      margin-bottom: 72px;
     }
     .hero__title em {
-      font-style: normal;
-      color: var(--blue-accent);
+      font-style: italic;
+      color: var(--white);
+      font-weight: 700;
     }
-    .hero__sub {
-      font-size: clamp(20px, 2.5vw, 28px);
-      font-weight: 600;
-      color: var(--navy-mid);
-      line-height: 1.3;
-      margin-bottom: 48px;
-      letter-spacing: -0.01em;
-      padding-bottom: 48px;
-      border-bottom: 1px solid rgba(53,88,114,0.15);
+    .hero__actions {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
     }
-    .hero__actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .hero__actions .btn--gold {
+      font-size: 15px;
+      padding: 18px 52px;
+      letter-spacing: 0.14em;
+    }
 
     /* ─── ANIMATIONS ─────────────────────────────────────────────── */
     @keyframes fadeUp {
@@ -814,10 +820,10 @@
 
     /* ─── RESPONSIVE ────────────────────────────────────────────── */
     @media (max-width: 900px) {
-      .hero { flex-direction: column; min-height: auto; }
-      .hero__text { flex: none; width: 100%; padding: 60px 32px 48px; text-align: center; background: var(--cream); box-shadow: none; }
+      .hero { min-height: auto; }
+      .hero__text { padding: 60px 32px 56px; text-align: center; max-width: 100%; }
+      .hero__sub { max-width: 100%; }
       .hero__text .hero__actions { justify-content: center; }
-      .hero__media { flex: none; width: 100%; height: 50vw; min-height: 260px; }
       .nav { display: none; }
       .hamburger { display: flex; }
       .mobile-nav.open { display: flex; }
@@ -912,17 +918,11 @@
 <!-- ═══ HERO ══════════════════════════════════════════════════════ -->
 <section class="hero">
   <div class="hero__text">
-    <h1 class="hero__title anim-fade-up delay-1">Welcome to <em>Select</em> Roofing</h1>
-    <p class="hero__sub anim-fade-up delay-2">Serving Virginia and Washington DC.</p>
-    <div class="hero__actions anim-fade-up delay-3">
-      <a href="#assessment" class="btn btn--gold">Schedule a Free Assessment</a>
+    <span class="hero__eyebrow anim-fade-in delay-1">Virginia &amp; DC Metro's Premier Roofer</span>
+    <h1 class="hero__title anim-fade-up delay-2">Welcome to <em>Select Roofing</em></h1>
+    <div class="hero__actions anim-fade-in delay-3">
+      <a href="contact.html" class="btn btn--gold">Schedule a Free Assessment</a>
     </div>
-  </div>
-  <div class="hero__media anim-fade-in delay-4">
-    <video autoplay muted loop playsinline>
-      <source src="brand_assets/house-animation.webm" type="video/webm">
-      <source src="brand_assets/3d-animation-of-house-building-alpha-channel-2026-02-18-07-53-32-utc.mp4" type="video/mp4">
-    </video>
   </div>
 </section>
 
