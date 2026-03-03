@@ -876,8 +876,8 @@
       <a href="#why" class="nav__link">Why Us</a>
       <a href="#about" class="nav__link">About</a>
       <a href="#quality" class="nav__link">Quality</a>
-      <a href="#contact" class="nav__link">Contact</a>
-      <a href="#assessment" class="btn btn--gold nav__cta">Free Assessment</a>
+      <a href="contact.html" class="nav__link">Contact</a>
+      <a href="contact.html" class="btn btn--gold nav__cta">Free Assessment</a>
     </nav>
     <button class="hamburger" aria-label="Menu" onclick="this.closest('header').nextElementSibling.classList.toggle('open')">
       <span></span><span></span><span></span>
@@ -889,7 +889,8 @@
   <a href="#why">Why Us</a>
   <a href="#about">About</a>
   <a href="#quality">Quality</a>
-  <a href="#assessment">Free Assessment</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html">Free Assessment</a>
 </nav>
 
 <!-- ═══ HERO ══════════════════════════════════════════════════════ -->
@@ -926,7 +927,7 @@
         </div>
         <h3 class="service-card__title">Roofing</h3>
         <p class="service-card__desc">Complete roof replacements, repairs, and new installations using the highest-quality materials available.</p>
-        <a href="#contact" class="btn btn--gold" style="font-size:11px;padding:9px 20px;">Learn More</a>
+        <a href="roofing.html" class="btn btn--gold" style="font-size:11px;padding:9px 20px;">Learn More</a>
       </div>
 
       <!-- Doors & Windows -->
@@ -936,7 +937,7 @@
         </div>
         <h3 class="service-card__title">Doors &amp; Windows</h3>
         <p class="service-card__desc">Energy-efficient door and window installations that enhance curb appeal and reduce heating costs.</p>
-        <a href="#contact" class="btn btn--gold" style="font-size:11px;padding:9px 20px;">Learn More</a>
+        <a href="windows.html" class="btn btn--gold" style="font-size:11px;padding:9px 20px;">Learn More</a>
       </div>
 
       <!-- Siding -->
@@ -946,7 +947,7 @@
         </div>
         <h3 class="service-card__title">Siding</h3>
         <p class="service-card__desc">Durable, beautiful siding solutions that protect your home from the elements while elevating its appearance.</p>
-        <a href="#contact" class="btn btn--gold" style="font-size:11px;padding:9px 20px;">Learn More</a>
+        <a href="siding.html" class="btn btn--gold" style="font-size:11px;padding:9px 20px;">Learn More</a>
       </div>
 
       <!-- Gutters -->
@@ -956,7 +957,7 @@
         </div>
         <h3 class="service-card__title">Gutters</h3>
         <p class="service-card__desc">Seamless gutter installation and cleaning to protect your foundation from water damage year-round.</p>
-        <a href="#contact" class="btn btn--gold" style="font-size:11px;padding:9px 20px;">Learn More</a>
+        <a href="gutters.html" class="btn btn--gold" style="font-size:11px;padding:9px 20px;">Learn More</a>
       </div>
 
       <!-- Insulation -->
@@ -966,7 +967,7 @@
         </div>
         <h3 class="service-card__title">Insulation</h3>
         <p class="service-card__desc">Superior attic and wall insulation to maximize energy efficiency and home comfort in every season.</p>
-        <a href="#contact" class="btn btn--gold" style="font-size:11px;padding:9px 20px;">Learn More</a>
+        <a href="insulation.html" class="btn btn--gold" style="font-size:11px;padding:9px 20px;">Learn More</a>
       </div>
 
       <!-- Emergency -->
@@ -976,7 +977,7 @@
         </div>
         <h3 class="service-card__title">Emergency 24/7</h3>
         <p class="service-card__desc">Storms don't wait — neither do we. Our emergency crew responds fast to protect your home when you need it most.</p>
-        <a href="#contact" class="btn btn--gold" style="font-size:11px;padding:9px 20px;">Learn More</a>
+        <a href="emergency.html" class="btn btn--gold" style="font-size:11px;padding:9px 20px;">Learn More</a>
       </div>
 
     </div>
@@ -1201,12 +1202,12 @@
       <div>
         <div class="footer__col-title">Services</div>
         <div class="footer__links">
-          <a href="#services">Roofing</a>
-          <a href="#services">Siding</a>
-          <a href="#services">Gutters</a>
-          <a href="#services">Doors &amp; Windows</a>
-          <a href="#services">Insulation</a>
-          <a href="#services">Emergency Repair</a>
+          <a href="roofing.html">Roofing</a>
+          <a href="siding.html">Siding</a>
+          <a href="gutters.html">Gutters</a>
+          <a href="windows.html">Doors &amp; Windows</a>
+          <a href="insulation.html">Insulation</a>
+          <a href="emergency.html">Emergency Repair</a>
         </div>
       </div>
 
@@ -1280,7 +1281,7 @@
         observer.unobserve(el.target);
       }
     });
-  }, { threshold: 0.12 });
+  }, { threshold: 0, rootMargin: '0px 0px 9999px 0px' });
 
   document.querySelectorAll('.service-card, .why-item, .section-title:not(.hero__title), .cta-banner__title, .who__inner').forEach(el => {
     el.style.opacity = '0';
