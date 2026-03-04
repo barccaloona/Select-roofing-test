@@ -711,6 +711,175 @@
       color: var(--gray-mid);
     }
 
+    /* ─── REVIEWS ───────────────────────────────────────────────── */
+    .reviews {
+      background: var(--cream);
+      padding: 80px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .reviews::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(to right, transparent, var(--blue-accent), transparent);
+    }
+    .reviews__header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .reviews__title {
+      font-family: var(--font-head);
+      font-size: clamp(28px, 3.5vw, 42px);
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+    .reviews__title em {
+      font-style: italic;
+      color: var(--blue-accent);
+    }
+    .reviews__meta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--gray-mid);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .reviews__stars-header {
+      display: flex;
+      gap: 3px;
+    }
+    .reviews__stars-header svg { width: 16px; height: 16px; fill: #f4b942; }
+    .reviews__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .review-card {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 32px 28px;
+      box-shadow: 0 2px 12px rgba(53,88,114,0.08), 0 1px 3px rgba(53,88,114,0.06);
+      border: 1px solid rgba(192,212,232,0.5);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: transform 0.25s, box-shadow 0.25s;
+      position: relative;
+    }
+    .review-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(53,88,114,0.14), 0 2px 6px rgba(53,88,114,0.08);
+    }
+    .review-card__quote {
+      position: absolute;
+      top: 20px; right: 24px;
+      font-size: 64px;
+      line-height: 1;
+      color: var(--blue-light);
+      opacity: 0.25;
+      font-family: Georgia, serif;
+      pointer-events: none;
+    }
+    .review-card__stars {
+      display: flex;
+      gap: 3px;
+    }
+    .review-card__stars svg { width: 15px; height: 15px; fill: #f4b942; }
+    .review-card__text {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--text-body);
+      position: relative;
+      z-index: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .review-card__text.expanded {
+      display: block;
+      overflow: visible;
+    }
+    .review-card__read-more {
+      background: none;
+      border: none;
+      padding: 0;
+      margin-top: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--blue-accent);
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .review-card__read-more:hover { color: var(--navy); }
+    .review-card__footer {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+    .review-card__avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: 900;
+      color: var(--white);
+      flex-shrink: 0;
+      letter-spacing: 0;
+    }
+    .review-card__name {
+      font-size: 13px;
+      font-weight: 900;
+      color: var(--navy);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .review-card__date {
+      font-size: 12px;
+      color: var(--gray-mid);
+      margin-top: 2px;
+    }
+    .reviews__cta {
+      text-align: center;
+      margin-top: 40px;
+    }
+    .reviews__cta a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue-accent);
+      transition: color 0.2s;
+    }
+    .reviews__cta a:hover { color: var(--navy); }
+    .reviews__cta svg { width: 14px; height: 14px; fill: currentColor; }
+    @media (max-width: 900px) {
+      .reviews__grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 580px) {
+      .reviews { padding: 60px 0; }
+      .reviews__grid { grid-template-columns: 1fr; }
+    }
+
     /* ─── HERO CTA ──────────────────────────────────────────────── */
     .cta-banner {
       background: var(--navy-dark);
@@ -1186,6 +1355,35 @@
   </div>
 </section>
 
+<!-- ═══ REVIEWS ══════════════════════════════════════════════════ -->
+<section class="reviews">
+  <div class="container">
+    <div class="reviews__header">
+      <span class="section-label">Google Reviews</span>
+      <h2 class="reviews__title">What Our Clients <em>Are Saying</em></h2>
+      <div class="reviews__meta">
+        <div class="reviews__stars-header">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <span>5.0 · Google Reviews</span>
+      </div>
+    </div>
+
+    <div class="reviews__grid" id="reviews-grid"></div>
+
+    <div class="reviews__cta">
+      <a href="https://g.page/r/YOUR_GOOGLE_PLACE_ID/review" target="_blank" rel="noopener">
+        See all reviews on Google
+        <svg viewBox="0 0 24 24"><path d="M14 5l7 7-7 7M3 12h18"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- ═══ CTA BANNER ════════════════════════════════════════════════ -->
 <section class="cta-banner" id="assessment">
   <div class="container">
@@ -1303,6 +1501,70 @@
     el.style.opacity = '0';
     observer.observe(el);
   });
+
+  // Review "Read more / Show less" toggle
+  function toggleReview(btn) {
+    const text = btn.previousElementSibling;
+    const expanded = text.classList.toggle('expanded');
+    btn.textContent = expanded ? 'Show less' : 'Read more';
+  }
+
+  // Fetch and render Google reviews
+  const PLACE_ID = 'ChIJT4cLtyW_tYkRU-qOMkMQ2kU';
+  const API_KEY  = 'AIzaSyAyL5HL7P73toUkEbilSEJkoLHgPn2HyJM';
+  const starSVG  = `<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>`;
+
+  function getInitials(name) {
+    return name.split(' ').filter(Boolean).slice(0, 2).map(n => n[0].toUpperCase()).join('');
+  }
+
+  function timeAgo(iso) {
+    const diff = Math.floor((Date.now() - new Date(iso)) / 86400000);
+    if (diff < 7)  return diff <= 1 ? 'Today' : `${diff} days ago`;
+    if (diff < 30) return `${Math.floor(diff/7)} week${Math.floor(diff/7)>1?'s':''} ago`;
+    if (diff < 365) return `${Math.floor(diff/30)} month${Math.floor(diff/30)>1?'s':''} ago`;
+    return `${Math.floor(diff/365)} year${Math.floor(diff/365)>1?'s':''} ago`;
+  }
+
+  fetch(`https://places.googleapis.com/v1/places/${PLACE_ID}?fields=rating,userRatingCount,reviews`, {
+    headers: { 'X-Goog-Api-Key': API_KEY, 'X-Goog-FieldMask': 'rating,userRatingCount,reviews' }
+  })
+  .then(r => r.json())
+  .then(data => {
+    const grid = document.getElementById('reviews-grid');
+    const meta = document.querySelector('.reviews__meta span');
+    if (data.rating) meta.textContent = `${data.rating.toFixed(1)} · ${data.userRatingCount} Google Reviews`;
+
+    const reviews = (data.reviews || [])
+      .filter(r => r.rating >= 4 && r.text?.text);
+
+    reviews.forEach((r, i) => {
+      const initials = getInitials(r.authorAttribution.displayName);
+      const delays   = ['', 'delay-1', 'delay-2', 'delay-3', 'delay-4'];
+      const card = document.createElement('div');
+      card.className = `review-card scroll-anim anim-fade-up ${delays[i] || ''}`;
+      card.innerHTML = `
+        <span class="review-card__quote">"</span>
+        <div class="review-card__stars">${starSVG.repeat(r.rating)}</div>
+        <p class="review-card__text">${r.text.text.replace(/\n/g, '<br>')}</p>
+        <button class="review-card__read-more" onclick="toggleReview(this)">Read more</button>
+        <div class="review-card__footer">
+          <div class="review-card__avatar">${initials}</div>
+          <div>
+            <div class="review-card__name">${r.authorAttribution.displayName}</div>
+            <div class="review-card__date">${timeAgo(r.publishTime)}</div>
+          </div>
+        </div>`;
+      grid.appendChild(card);
+    });
+
+    // Hide "Read more" if text fits within clamp
+    grid.querySelectorAll('.review-card__text').forEach(p => {
+      const btn = p.nextElementSibling;
+      if (btn && p.scrollHeight <= p.clientHeight) btn.style.display = 'none';
+    });
+  })
+  .catch(() => document.querySelector('.reviews').style.display = 'none');
 </script>
 </body>
 </html>
