@@ -47,6 +47,7 @@
       color: var(--text-body);
       background: var(--cream);
       word-wrap: break-word;
+      overflow-x: hidden;
     }
 
     img { max-width: 100%; display: block; }
@@ -768,7 +769,7 @@
       margin-bottom: 40px;
     }
     .footer__logo img {
-      height: 72px;
+      height: 160px;
       width: auto;
       filter: brightness(0) invert(1);
       margin-bottom: 18px;
@@ -840,15 +841,16 @@
     /* ─── RESPONSIVE ────────────────────────────────────────────── */
     @media (max-width: 900px) {
       .hero { min-height: auto; }
-      .hero__text { padding: 60px 32px 56px; text-align: center; max-width: 100%; }
+      .hero__text { padding: 60px 32px 120px; text-align: center; max-width: 100%; }
+      .hero__title { margin-bottom: 32px; }
       .hero__sub { max-width: 100%; }
       .hero__text .hero__actions { justify-content: center; }
-      .hero__actions .btn--gold { font-size: 13px; padding: 14px 28px; letter-spacing: 0.1em; }
-      .header__inner { display: flex; justify-content: space-between; }
+      .hero__actions .btn--gold { font-size: 12px; padding: 12px 24px; letter-spacing: 0.1em; }
+      .header__inner { display: flex; justify-content: space-between; flex-direction: row-reverse; }
       .header__right .nav__cta { display: none; }
       .nav { display: none; }
       .hamburger { display: flex; }
-      .mobile-nav.open { display: flex; }
+      .mobile-nav.open { display: flex; position: relative; z-index: 50; }
       .services__grid { grid-template-columns: repeat(2, 1fr); }
       .why-item { grid-template-columns: 1fr; }
       .why-item__image { height: 200px; }
@@ -863,6 +865,9 @@
       .quality__grid { grid-template-columns: 1fr 1fr; }
       .footer__grid { grid-template-columns: 1fr; }
       .topbar__contact { flex-direction: column; gap: 4px; }
+      .who__stats { grid-template-columns: 1fr; gap: 12px; }
+      .who__stat-num { font-size: 22px; }
+      .who__stat { display: flex; align-items: baseline; gap: 8px; text-align: left; }
     }
   </style>
 </head>
@@ -873,13 +878,13 @@
   <div class="container">
     <div class="topbar__inner">
       <div class="topbar__contact">
-        <a href="tel:+17035550190">
+        <a href="tel:+15406227087">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
-          (703) 555-0190
+          (540) 622-7087
         </a>
-        <a href="mailto:info@selectroofingva.com">
+        <a href="mailto:Guilbert@selectroofingva.com">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          info@selectroofingva.com
+          Guilbert@selectroofingva.com
         </a>
       </div>
       <div class="topbar__social">
@@ -1066,12 +1071,12 @@
     <!-- 4 -->
     <div class="why-item">
       <div class="why-item__image">
-        <img src="brand_assets/Siding.jpeg" alt="Family roofing experience" />
+        <img src="brand_assets/Siding.jpeg" alt="Clean, efficient roofing installation" />
       </div>
       <div class="why-item__content">
-        <span class="why-item__num">04 — Family Experience</span>
-        <h3 class="why-item__title">Family Experience</h3>
-        <p class="why-item__desc">Select Roofing is family-owned and operated. We treat every home like our own, bringing the same care and attention to detail that we'd expect from any contractor working on our family's roof.</p>
+        <span class="why-item__num">04 — Clean Job Sites</span>
+        <h3 class="why-item__title">Clean Job Sites</h3>
+        <p class="why-item__desc">We take the mess seriously. Every job ends with a full site sweep — nails, debris, and old materials removed from your property. We protect your landscaping throughout the process and leave your home better than we found it.</p>
       </div>
     </div>
 
@@ -1098,20 +1103,20 @@
         <h2 class="section-title section-title--light">Proudly Serving West Virginia · Virginia · Maryland</h2>
         <div class="who__stats">
           <div class="who__stat">
-            <div class="who__stat-num">1,200+</div>
-            <div class="who__stat-label">Roofs Installed</div>
+            <div class="who__stat-num">Licensed</div>
+            <div class="who__stat-label">&amp; Fully Insured</div>
           </div>
           <div class="who__stat">
-            <div class="who__stat-num">20+</div>
-            <div class="who__stat-label">Years Experience</div>
+            <div class="who__stat-num">Free</div>
+            <div class="who__stat-label">Written Estimates</div>
           </div>
           <div class="who__stat">
-            <div class="who__stat-num">4.9★</div>
-            <div class="who__stat-label">Average Rating</div>
+            <div class="who__stat-num">100%</div>
+            <div class="who__stat-label">Workmanship Guarantee</div>
           </div>
         </div>
-        <p>Select Roofing was founded on a simple principle: every homeowner deserves a contractor they can trust. We built our reputation one roof at a time, and today we're proud to be one of the most-trusted roofing companies across West Virginia, Virginia, and Maryland.</p>
-        <p>Our certified team of professionals brings decades of combined experience to every project — residential or commercial, simple repair or full replacement.</p>
+        <p>Select Roofing was founded on a simple principle: every homeowner deserves a contractor they can trust. We started this company to bring honest pricing, quality materials, and reliable craftsmanship to homeowners across Virginia.</p>
+        <p>From first inspection to final cleanup, we handle every step of the process ourselves — no subcontracting, no shortcuts, and no surprises on your final bill.</p>
         <a href="#assessment" class="btn btn--gold">Get Your Free Assessment</a>
       </div>
     </div>
@@ -1188,7 +1193,7 @@
       <span class="cta-banner__divider"></span>
       <h2 class="cta-banner__title">Get Started with a Free Roofing Assessment</h2>
       <p class="cta-banner__sub">No pressure. No obligation. Just an honest evaluation from the most trusted roofing team in WV, VA &amp; MD.</p>
-      <a href="#contact" class="btn btn--gold" style="font-size:14px;padding:16px 40px;">Schedule My Free Assessment</a>
+      <a href="contact.html" class="btn btn--gold" style="font-size:14px;padding:16px 40px;">Schedule My Free Assessment</a>
     </div>
   </div>
 </section>
@@ -1201,7 +1206,7 @@
         <div class="footer__logo">
           <img src="brand_assets/Logo_Transparrnt.png" alt="Select Roofing" />
         </div>
-        <p class="footer__about">Premier roofing specialists serving West Virginia, Virginia &amp; Maryland. Licensed, insured, and dedicated to delivering premium craftsmanship on every project — residential and commercial.</p>
+        <p class="footer__about">Premier roofing specialists serving Northern Virginia &amp; surrounding areas. Licensed, insured, and dedicated to delivering premium craftsmanship on every project — residential and commercial.</p>
         <div class="footer__social">
           <a href="#" aria-label="Facebook">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
@@ -1231,9 +1236,6 @@
           <a href="#about">About Us</a>
           <a href="#why">Why Select</a>
           <a href="#quality">Our Process</a>
-          <a href="#">Testimonials</a>
-          <a href="#">Blog</a>
-          <a href="#">Careers</a>
         </div>
       </div>
 
@@ -1243,19 +1245,19 @@
           <span class="footer__contact-icon">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
           </span>
-          <span>(703) 555-0190</span>
+          <span>(540) 622-7087</span>
         </div>
         <div class="footer__contact-item">
           <span class="footer__contact-icon">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
           </span>
-          <span>info@selectroofingva.com</span>
+          <span>Guilbert@selectroofingva.com</span>
         </div>
         <div class="footer__contact-item">
           <span class="footer__contact-icon">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
           </span>
-          <span>West Virginia, Virginia &amp; Maryland</span>
+          <span>P.O. Box 204, Haymarket VA 20168</span>
         </div>
       </div>
     </div>

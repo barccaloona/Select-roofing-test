@@ -202,10 +202,10 @@
     .footer__bottom-links a:hover { color: var(--blue-light); }
 
     /* RESPONSIVE */
-    @media (max-width: 960px) { .header__inner { display: flex; justify-content: space-between; } .header__right .nav__cta { display: none; }
+    @media (max-width: 960px) { .header__inner { display: flex; justify-content: space-between; flex-direction: row-reverse; } .header__right .nav__cta { display: none; }
       .nav { display: none; }
       .hamburger { display: flex; }
-      .mobile-nav.open { display: flex; }
+      .mobile-nav.open { display: flex; position: relative; z-index: 50; }
       .service-intro__inner { grid-template-columns: 1fr; gap: 36px; }
       .offer-grid { grid-template-columns: 1fr; }
       .process-steps { grid-template-columns: 1fr 1fr; gap: 32px; }
@@ -215,7 +215,7 @@
       .footer__grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 600px) {
-      .page-hero { height: 400px; }
+      .page-hero { height: 480px; }
       .service-intro__features { grid-template-columns: 1fr; }
       .process-steps { grid-template-columns: 1fr; }
       .benefits-grid { grid-template-columns: 1fr; }
@@ -232,8 +232,8 @@
   <div class="container">
     <div class="topbar__inner">
       <div class="topbar__contact">
-        <a href="tel:+17035550190"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg> (703) 555-0190</a>
-        <a href="mailto:info@selectroofingva.com"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg> info@selectroofingva.com</a>
+        <a href="tel:+15406227087"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg> (540) 622-7087</a>
+        <a href="mailto:Guilbert@selectroofingva.com"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg> Guilbert@selectroofingva.com</a>
       </div>
       <div class="topbar__social">
         <a href="#" aria-label="Facebook"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
@@ -295,7 +295,7 @@
       <p class="page-hero__sub anim-fade-up delay-2">Complete roof replacements, precision repairs, and new installations using premium materials — backed by our industry-leading warranty.</p>
       <div class="page-hero__actions anim-fade-up delay-3">
         <a href="contact.html" class="btn btn--gold">Get a Free Quote</a>
-        <a href="tel:+17035550190" class="btn btn--ghost">Call (703) 555-0190</a>
+        <a href="tel:+15406227087" class="btn btn--ghost">Call (540) 622-7087</a>
       </div>
     </div>
   </div>
@@ -479,7 +479,7 @@
     <p class="cta-band__sub scroll-anim anim-fade-up delay-1">Schedule your free roof inspection today. No pressure, no obligation — just honest expertise from Virginia's premier roofing team.</p>
     <div class="cta-band__actions scroll-anim anim-fade-up delay-2">
       <a href="contact.html" class="btn btn--gold">Schedule Free Assessment</a>
-      <a href="tel:+17035550190" class="btn btn--ghost">Call (703) 555-0190</a>
+      <a href="tel:+15406227087" class="btn btn--ghost">Call (540) 622-7087</a>
     </div>
   </div>
 </section>
@@ -519,9 +519,9 @@
       </div>
       <div>
         <div class="footer__col-title">Contact</div>
-        <div class="footer__contact-item"><span class="footer__contact-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg></span><span>(703) 555-0190</span></div>
-        <div class="footer__contact-item"><span class="footer__contact-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></span><span>info@selectroofingva.com</span></div>
-        <div class="footer__contact-item"><span class="footer__contact-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></span><span>Northern Virginia &amp; Surrounding Areas</span></div>
+        <div class="footer__contact-item"><span class="footer__contact-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg></span><span>(540) 622-7087</span></div>
+        <div class="footer__contact-item"><span class="footer__contact-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></span><span>Guilbert@selectroofingva.com</span></div>
+        <div class="footer__contact-item"><span class="footer__contact-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></span><span>P.O. Box 204, Haymarket VA 20168</span></div>
       </div>
     </div>
     <div class="footer__bottom">
