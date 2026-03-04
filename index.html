@@ -773,6 +773,12 @@
       transition: transform 0.25s, box-shadow 0.25s;
       position: relative;
     }
+    .review-card__body {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+    }
     .review-card:hover {
       transform: translateY(-4px);
       box-shadow: 0 12px 32px rgba(53,88,114,0.14), 0 2px 6px rgba(53,88,114,0.08);
@@ -1536,18 +1542,21 @@
     if (data.rating) meta.textContent = `${data.rating.toFixed(1)} · ${data.userRatingCount} Google Reviews`;
 
     const reviews = (data.reviews || [])
-      .filter(r => r.rating >= 4 && r.text?.text);
+      .filter(r => r.rating >= 4 && r.text?.text)
+      .slice(0, 3);
 
     reviews.forEach((r, i) => {
       const initials = getInitials(r.authorAttribution.displayName);
-      const delays   = ['', 'delay-1', 'delay-2', 'delay-3', 'delay-4'];
+      const delays   = ['', 'delay-1', 'delay-2'];
       const card = document.createElement('div');
       card.className = `review-card scroll-anim anim-fade-up ${delays[i] || ''}`;
       card.innerHTML = `
         <span class="review-card__quote">"</span>
         <div class="review-card__stars">${starSVG.repeat(r.rating)}</div>
-        <p class="review-card__text">${r.text.text.replace(/\n/g, '<br>')}</p>
-        <button class="review-card__read-more" onclick="toggleReview(this)">Read more</button>
+        <div class="review-card__body">
+          <p class="review-card__text">${r.text.text.replace(/\n/g, '<br>')}</p>
+          <button class="review-card__read-more" onclick="toggleReview(this)">Read more</button>
+        </div>
         <div class="review-card__footer">
           <div class="review-card__avatar">${initials}</div>
           <div>
@@ -1561,7 +1570,7 @@
     // Hide "Read more" if text fits within clamp
     grid.querySelectorAll('.review-card__text').forEach(p => {
       const btn = p.nextElementSibling;
-      if (btn && p.scrollHeight <= p.clientHeight) btn.style.display = 'none';
+      if (btn && p.scrollHeight <= p.clientHeight + 2) btn.style.display = 'none';
     });
   })
   .catch(() => document.querySelector('.reviews').style.display = 'none');
