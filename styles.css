@@ -28,7 +28,7 @@ html { scroll-behavior: smooth; }
 
 body {
   font-family: var(--font-body);
-  font-size: 18px;
+  font-size: 23px;
   font-weight: 400;
   line-height: 1.55;
   color: var(--text-body);
@@ -80,8 +80,8 @@ ul { list-style: none; }
   border: none;
   transition: background 0.22s ease, transform 0.18s ease, box-shadow 0.22s ease;
 }
-.btn--gold { background: linear-gradient(140deg, #1ab8ff 0%, #0090e8 100%); color: #ffffff; box-shadow: 0 4px 16px rgba(0,144,232,0.5), 0 0 28px rgba(26,184,255,0.25), inset 0 1px 0 rgba(255,255,255,0.2); }
-.btn--gold:hover { background: linear-gradient(140deg, #3dc8ff 0%, #00a8ff 100%); transform: translateY(-2px); box-shadow: 0 7px 22px rgba(0,144,232,0.6), 0 0 40px rgba(26,184,255,0.35); }
+.btn--gold { background: linear-gradient(140deg, #0096c7 0%, #0077b6 100%); color: #ffffff; box-shadow: 0 4px 16px rgba(0,119,182,0.45), 0 0 28px rgba(0,150,199,0.2), inset 0 1px 0 rgba(255,255,255,0.18); }
+.btn--gold:hover { background: linear-gradient(140deg, #00b4d8 0%, #0096c7 100%); transform: translateY(-2px); box-shadow: 0 7px 22px rgba(0,119,182,0.55), 0 0 40px rgba(0,150,199,0.3); }
 .btn--gold:active { transform: translateY(0); }
 
 .btn--blue { background: linear-gradient(140deg, #7aaace 0%, #4d7ca4 100%); color: #ffffff; box-shadow: 0 4px 14px rgba(77,124,164,0.35); }
@@ -161,14 +161,14 @@ ul { list-style: none; }
 .breadcrumb__sep { color: rgba(255,255,255,0.25); }
 .page-hero__title { font-family: var(--font-body); font-size: clamp(36px, 6vw, 64px); font-weight: 900; letter-spacing: 0.04em; text-transform: uppercase; color: var(--white); line-height: 1.05; margin-bottom: 16px; }
 .page-hero__title em { font-style: normal; color: var(--blue-light); }
-.page-hero__sub { font-size: 17px; font-weight: 400; color: rgba(255,255,255,0.72); max-width: 580px; line-height: 1.65; margin-bottom: 32px; }
+.page-hero__sub { font-size: 22px; font-weight: 400; color: rgba(255,255,255,0.72); max-width: 580px; line-height: 1.65; margin-bottom: 32px; }
 .page-hero__actions { display: flex; gap: 14px; flex-wrap: wrap; }
 
 /* ─── SERVICE INTRO ─────────────────────────────────────────── */
 .service-intro { background: var(--cream); padding: 72px 0; }
 .service-intro__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
 .service-intro__text h2 { font-family: var(--font-body); font-size: 26px; font-weight: 900; letter-spacing: 0.03em; text-transform: uppercase; color: var(--navy); margin-bottom: 18px; line-height: 1.2; }
-.service-intro__text p { font-size: 17px; line-height: 1.8; color: var(--text-body); margin-bottom: 14px; }
+.service-intro__text p { font-size: 22px; line-height: 1.8; color: var(--text-body); margin-bottom: 14px; }
 .service-intro__features { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .feature-tile { background: var(--white); border-radius: 6px; padding: 22px 20px; box-shadow: var(--shadow-card); border-left: 3px solid var(--blue-accent); }
 .feature-tile__icon { width: 34px; height: 34px; background: var(--navy); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; }
@@ -233,7 +233,7 @@ ul { list-style: none; }
 .cta-band { background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%); padding: 80px 0; text-align: center; position: relative; overflow: hidden; }
 .cta-band::before { content: ''; position: absolute; top: -80px; left: 50%; transform: translateX(-50%); width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(122,170,206,0.07) 0%, transparent 70%); pointer-events: none; }
 .cta-band__title { font-family: var(--font-body); font-size: clamp(26px, 4vw, 42px); font-weight: 900; letter-spacing: 0.04em; text-transform: uppercase; color: var(--white); margin-bottom: 12px; }
-.cta-band__sub { font-size: 17px; color: rgba(255,255,255,0.6); margin-bottom: 36px; max-width: 480px; margin-left: auto; margin-right: auto; }
+.cta-band__sub { font-size: 22px; color: rgba(255,255,255,0.6); margin-bottom: 36px; max-width: 480px; margin-left: auto; margin-right: auto; }
 .cta-band__actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 
 /* ─── FOOTER ────────────────────────────────────────────────── */

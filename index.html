@@ -182,53 +182,57 @@
 
     /* ─── PARTNERS ──────────────────────────────────────────────── */
     .partners {
-      background: var(--white);
-      padding: 44px 0;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
+      background: var(--navy-dark);
+      padding: 56px 0;
     }
     .partners__header {
       text-align: center;
-      margin-bottom: 32px;
+      margin-bottom: 40px;
+    }
+    .partners__label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--blue-light);
+      display: block;
+      margin-bottom: 8px;
     }
     .partners__header h2 {
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.2em;
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
-      color: var(--gray-mid);
+      color: var(--white);
+      font-family: var(--font-body);
     }
     .partners__logos {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 16px;
+      gap: 0;
       flex-wrap: wrap;
     }
     .partner-logo {
       display: flex;
-      flex-direction: column;
       align-items: center;
-      gap: 4px;
-      opacity: 0.65;
-      transition: opacity 0.2s;
-      filter: grayscale(100%);
+      justify-content: center;
+      padding: 16px 28px;
+      border-right: 1px solid rgba(255,255,255,0.08);
+      transition: opacity 0.3s;
+      cursor: default;
+      flex: 1;
     }
-    .partner-logo:hover { opacity: 1; filter: none; }
-    .partner-logo__badge {
-      min-width: 130px;
-      height: 56px;
-      padding: 0 18px;
-      background: var(--cream-dark);
-      border-radius: 4px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 13px;
-      font-weight: 900;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--navy);
-      white-space: nowrap;
+    .partner-logo:last-child { border-right: none; }
+    .partner-logo img {
+      width: auto;
+      height: 44px;
+      object-fit: contain;
+      display: block;
+      opacity: 0.8;
+      transition: opacity 0.3s;
     }
+    .partner-logo:hover img { opacity: 1; }
 
     /* ─── WHY CHOOSE US ─────────────────────────────────────────── */
     .why {
@@ -302,7 +306,7 @@
       margin-bottom: 16px;
     }
     .why-item__desc {
-      font-size: 17px;
+      font-size: 22px;
       color: var(--text-body);
       line-height: 1.7;
     }
@@ -361,7 +365,7 @@
     .who__content .section-label { color: var(--blue-light); }
     .who__content p {
       color: rgba(255,255,255,0.8);
-      font-size: 17px;
+      font-size: 22px;
       line-height: 1.75;
       margin-bottom: 20px;
     }
@@ -564,7 +568,7 @@
     }
     .review-card__stars svg { width: 15px; height: 15px; fill: #f4b942; }
     .review-card__text {
-      font-size: 16px;
+      font-size: 21px;
       line-height: 1.75;
       color: var(--text-body);
       position: relative;
@@ -690,7 +694,7 @@
     }
     .cta-banner__sub {
       color: rgba(255,255,255,0.65);
-      font-size: 17px;
+      font-size: 22px;
       margin-bottom: 32px;
     }
     .cta-banner__divider {
@@ -903,7 +907,7 @@
   <div class="container">
     <div class="services__header">
       <h2 class="section-title section-title--center">Our Services</h2>
-      <p style="color:var(--gray-mid);max-width:520px;margin:0 auto;font-size:17px;">From full roof replacements to new windows and gutters, we handle every project with the precision and care your home deserves.</p>
+      <p style="color:var(--gray-mid);max-width:520px;margin:0 auto;font-size:22px;">From full roof replacements to new windows and gutters, we handle every project with the precision and care your home deserves.</p>
     </div>
     <div class="services__grid">
 
@@ -955,16 +959,17 @@
 <section class="partners">
   <div class="container">
     <div class="partners__header">
-      <h2>Partners We Work With</h2>
+      <span class="partners__label">Trusted Brands We Install</span>
+      <h2>Our Manufacturing Partners</h2>
     </div>
     <div class="partners__logos">
-      <div class="partner-logo"><div class="partner-logo__badge">Owens Corning</div></div>
-      <div class="partner-logo"><div class="partner-logo__badge">CertainTeed</div></div>
-      <div class="partner-logo"><div class="partner-logo__badge">Velux</div></div>
-      <div class="partner-logo"><div class="partner-logo__badge">James Hardie</div></div>
-      <div class="partner-logo"><div class="partner-logo__badge">Azek</div></div>
-      <div class="partner-logo"><div class="partner-logo__badge">ProVia</div></div>
-      <div class="partner-logo"><div class="partner-logo__badge">Englert</div></div>
+      <div class="partner-logo"><img src="brand_assets/Owens Corning.png" alt="Owens Corning" style="height:92px;" /></div>
+      <div class="partner-logo"><img src="brand_assets/Certainteed-Logo.png" alt="CertainTeed" style="height:88px;" /></div>
+      <div class="partner-logo"><img src="brand_assets/Velux Logo.png" alt="Velux" style="height:84px;" /></div>
+      <div class="partner-logo"><img src="brand_assets/james-hardie-logo.png" alt="James Hardie" style="height:84px;" /></div>
+      <div class="partner-logo"><img src="brand_assets/AZEK-Exteriors-Logo-2023.png" alt="AZEK Exteriors" style="height:72px;" /></div>
+      <div class="partner-logo"><img src="brand_assets/ProVia-logo-(10-15-11).webp" alt="ProVia" style="height:72px;" /></div>
+      <div class="partner-logo"><img src="brand_assets/Englert-Logo.png" alt="Englert" style="height:84px;" /></div>
     </div>
   </div>
 </section>
@@ -973,8 +978,8 @@
 <section class="why" id="why">
   <div class="container">
     <div class="why__header">
-      <span class="section-label">The Select Difference</span>
-      <h2 class="section-title section-title--center">Why Choose Us</h2>
+      <span class="section-label">What Sets Us Apart</span>
+      <h2 class="section-title section-title--center">The Select Standard</h2>
     </div>
   </div>
   <div class="why__items">
@@ -985,9 +990,9 @@
         <img src="brand_assets/Solutions for Home.jpeg" alt="Hassle Free Roofing" />
       </div>
       <div class="why-item__content">
-        <span class="why-item__num">01 — Hassle Free</span>
-        <h3 class="why-item__title">Hassle Free</h3>
-        <p class="why-item__desc">We handle everything from the initial inspection to the final walkthrough. No hidden fees, no surprise visits — just a seamless experience from start to finish. We coordinate with your insurance so you don't have to.</p>
+        <span class="why-item__num">01 — We Handle Everything</span>
+        <h3 class="why-item__title">We Handle Everything</h3>
+        <p class="why-item__desc">We handle everything from the initial inspection to the final walkthrough. No hidden fees, no surprise visits — just a seamless, guided experience from start to finish. We coordinate with your insurance so you don't have to lift a finger.</p>
       </div>
     </div>
 
@@ -997,9 +1002,9 @@
         <img src="brand_assets/Solutions.jpeg" alt="Simple roofing process" />
       </div>
       <div class="why-item__content">
-        <span class="why-item__num">02 — Simplicity</span>
-        <h3 class="why-item__title">Simplicity</h3>
-        <p class="why-item__desc">Roofing doesn't have to be complicated. We break down every step in plain language, give you a transparent quote upfront, and keep you informed throughout the entire project with real-time updates.</p>
+        <span class="why-item__num">02 — Total Transparency</span>
+        <h3 class="why-item__title">Total Transparency</h3>
+        <p class="why-item__desc">No surprises, no fine print. We provide a detailed, itemized quote before any work begins and keep you informed at every milestone. You'll always know exactly what's happening on your roof and why.</p>
       </div>
     </div>
 
@@ -1009,21 +1014,21 @@
         <img src="brand_assets/Roofing Mats.png" alt="Quality roofing materials" />
       </div>
       <div class="why-item__content">
-        <span class="why-item__num">03 — Quality</span>
-        <h3 class="why-item__title">Quality</h3>
-        <p class="why-item__desc">We use only premium materials from industry-leading manufacturers. Every installation is backed by both the manufacturer's product warranty and our own comprehensive workmanship guarantee for total peace of mind.</p>
+        <span class="why-item__num">03 — Premium Craftsmanship</span>
+        <h3 class="why-item__title">Premium Craftsmanship</h3>
+        <p class="why-item__desc">We use only top-tier materials from industry-leading manufacturers. Every installation is backed by both the manufacturer's product warranty and our own comprehensive workmanship guarantee for total peace of mind.</p>
       </div>
     </div>
 
     <!-- 4 -->
     <div class="why-item">
       <div class="why-item__image">
-        <img src="brand_assets/Clean Job.png" alt="Clean, efficient roofing installation" />
+        <img src="brand_assets/Clean_job_site.jpeg" alt="Clean, efficient roofing installation" />
       </div>
       <div class="why-item__content">
-        <span class="why-item__num">04 — Clean Job Sites</span>
-        <h3 class="why-item__title">Clean Job Sites</h3>
-        <p class="why-item__desc">We take the mess seriously. Every job ends with a full site sweep — nails, debris, and old materials removed from your property. We protect your landscaping throughout the process and leave your home better than we found it.</p>
+        <span class="why-item__num">04 — Respect for Your Property</span>
+        <h3 class="why-item__title">Respect for Your Property</h3>
+        <p class="why-item__desc">Your home deserves to be treated with care. Every job ends with a thorough site sweep — nails, debris, and old materials fully removed. We protect your landscaping throughout the project and leave your property cleaner than we found it.</p>
       </div>
     </div>
 
@@ -1108,28 +1113,6 @@
       </div>
     </div>
 
-    <div class="quality__badges">
-      <div class="badge">
-        <div class="badge__ring">GAF<br>Master<br>Elite</div>
-        <div class="badge__name">Certified</div>
-      </div>
-      <div class="badge">
-        <div class="badge__ring">A+<br>BBB</div>
-        <div class="badge__name">Rated</div>
-      </div>
-      <div class="badge">
-        <div class="badge__ring">Angi<br>Super<br>Service</div>
-        <div class="badge__name">Award</div>
-      </div>
-      <div class="badge">
-        <div class="badge__ring">5★<br>Google</div>
-        <div class="badge__name">Reviews</div>
-      </div>
-      <div class="badge">
-        <div class="badge__ring">OC<br>Plat<br>Pro</div>
-        <div class="badge__name">Preferred</div>
-      </div>
-    </div>
   </div>
 </section>
 
