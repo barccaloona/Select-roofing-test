@@ -982,12 +982,19 @@
       .header__right .nav__cta { display: none; }
       .nav { display: none; }
       .hamburger { display: flex; }
-      .mobile-nav.open { display: flex; position: relative; z-index: 50; }
+      .mobile-nav.open { display: flex; position: fixed; top: 76px; left: 0; right: 0; z-index: 150; }
       .services__grid { grid-template-columns: repeat(2, 1fr); }
       .why-item { grid-template-columns: 1fr; }
       .why-item__image { height: 260px; }
+      .why-item:first-child .why-item__image { height: 360px; }
       .why-item:nth-child(even) .why-item__image { order: 0; }
       .why-item:nth-child(even) .why-item__content { order: 1; }
+      .pc-slides { height: 210px; }
+      .process-carousel { gap: 20px; }
+      .pc-icon { width: 72px; height: 72px; }
+      .pc-icon svg { width: 28px; height: 28px; }
+      .pc-label { font-size: 15px; }
+      .pc-step-num { font-size: 11px; }
       .who__inner { grid-template-columns: 1fr; }
       .quality__grid { grid-template-columns: repeat(2, 1fr); }
       .footer__grid { grid-template-columns: 1fr 1fr; }

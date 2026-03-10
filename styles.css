@@ -262,7 +262,7 @@ ul { list-style: none; }
   .header__right .nav__cta { display: none; }
   .nav { display: none; }
   .hamburger { display: flex; }
-  .mobile-nav.open { display: flex; position: relative; z-index: 50; }
+  .mobile-nav.open { display: flex; position: fixed; top: 76px; left: 0; right: 0; z-index: 150; }
   .service-intro__inner { grid-template-columns: 1fr; gap: 36px; }
   .offer-grid { grid-template-columns: 1fr; }
   .process-steps { grid-template-columns: 1fr 1fr; gap: 32px; }
