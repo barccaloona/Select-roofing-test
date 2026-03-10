@@ -1659,7 +1659,7 @@
       const initials = getInitials(r.authorAttribution.displayName);
       const photo    = r.authorAttribution.photoUri;
       const avatar   = photo
-        ? `<img src="${photo}" alt="${r.authorAttribution.displayName}" loading="lazy">`
+        ? `<img src="${photo}" alt="${r.authorAttribution.displayName}" loading="lazy" onerror="this.parentElement.textContent='${initials}'">`
         : initials;
       const delays   = ['', 'delay-1', 'delay-2'];
       const card = document.createElement('div');
