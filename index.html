@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Select Roofing – Premier Roofing Specialists in WV, VA &amp; MD</title>
-  <link rel="icon" type="image/jpeg" href="brand_assets/Logo.jpeg" />
-  <meta property="og:image" content="brand_assets/Logo.jpeg" />
+  <link rel="icon" type="image/jpeg" href="brand_assets/logos/Logo.jpeg" />
+  <meta property="og:image" content="brand_assets/logos/Logo.jpeg" />
   <meta property="og:image:type" content="image/jpeg" />
-  <meta name="twitter:image" content="brand_assets/Logo.jpeg" />
+  <meta name="twitter:image" content="brand_assets/logos/Logo.jpeg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
@@ -21,7 +21,7 @@
       justify-content: center;
       position: relative;
       overflow: hidden;
-      background: url('brand_assets/roofing.jpeg') center 20% / cover no-repeat;
+      background: url('brand_assets/images/roofing.jpeg') center 20% / cover no-repeat;
     }
     .hero::before {
       content: '';
@@ -180,6 +180,134 @@
       line-height: 1.8;
     }
 
+    /* ─── PROCESS CAROUSEL ──────────────────────────────────────── */
+    .process-anim {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .process-anim::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 55% at 50% 50%, rgba(122,170,206,0.12) 0%, transparent 65%),
+        linear-gradient(to bottom, rgba(18,34,48,0.82), rgba(18,34,48,0.90));
+      pointer-events: none;
+      z-index: 1;
+    }
+    .process-carousel {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      padding: 0 40px;
+    }
+    /* slides */
+    .pc-slides {
+      position: relative;
+      width: 100%;
+      height: 260px;
+    }
+    .pc-slide {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.55s cubic-bezier(0.22,1,0.36,1),
+                  transform 0.55s cubic-bezier(0.22,1,0.36,1);
+      pointer-events: none;
+    }
+    .pc-slide.active {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .pc-slide.exit {
+      opacity: 0;
+      transform: translateY(-18px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+    .pc-step-num {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--blue-light);
+      opacity: 0.8;
+    }
+    .pc-icon {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      border: 1.5px solid var(--blue-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      background: rgba(122,170,206,0.12);
+      box-shadow: 0 0 0 8px rgba(122,170,206,0.07), 0 0 36px rgba(122,170,206,0.25);
+    }
+    .pc-icon svg { width: 38px; height: 38px; }
+    .pc-label {
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #fff;
+      text-align: center;
+    }
+    .pc-sub {
+      font-size: 14px;
+      color: rgba(255,255,255,0.45);
+      text-align: center;
+    }
+    /* progress dots */
+    .pc-dots {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .pc-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.25);
+      transition: background 0.3s ease, transform 0.3s ease;
+      cursor: pointer;
+    }
+    .pc-dot.active {
+      background: var(--blue-light);
+      transform: scale(1.5);
+    }
+    /* progress bar */
+    .pc-progress {
+      width: 200px;
+      height: 2px;
+      background: rgba(255,255,255,0.12);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .pc-progress-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--blue-light);
+      border-radius: 2px;
+      transition: width linear;
+    }
+
     /* ─── PARTNERS ──────────────────────────────────────────────── */
     .partners {
       background: var(--white);
@@ -253,32 +381,82 @@
     .why-item__image {
       position: relative;
       overflow: hidden;
-      min-height: 300px;
+      height: 520px;
+      background: var(--navy-dark);
     }
     .why-item__image img {
+      position: absolute;
+      inset: 0;
       width: 100%; height: 100%;
       object-fit: cover;
     }
-    .why-item__image::after {
-      content: '';
+    .why-item__image::after { display: none; }
+    /* ─── BEFORE / AFTER SLIDER ────────────────────────────────── */
+    /* remove the image overlay gradient for the slider item */
+    .why-item--slider .why-item__image::after { display: none; }
+    .ba-slider {
       position: absolute;
       inset: 0;
-      background: linear-gradient(
-        to bottom,
-        rgba(0,0,0,0.12) 0%,
-        rgba(0,0,0,0.32) 100%
-      );
-    }
-    /* Gold accent stripe on image panels */
-    .why-item__image::before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: var(--blue-accent);
+      cursor: ew-resize;
+      user-select: none;
+      -webkit-user-select: none;
       z-index: 2;
+    }
+    .ba-before, .ba-after {
+      position: absolute;
+      inset: 0;
+    }
+    .ba-before img, .ba-after img {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    .ba-after {
+      clip-path: inset(0 0 0 50%);
+    }
+    .ba-label {
+      position: absolute;
+      bottom: 14px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #fff;
+      background: rgba(0,0,0,0.48);
+      padding: 4px 10px;
+      border-radius: 3px;
+      pointer-events: none;
+      z-index: 3;
+    }
+    .ba-label--before { left: 14px; }
+    .ba-label--after  { right: 14px; }
+    .ba-handle {
+      position: absolute;
+      top: 0; bottom: 0;
+      left: 50%;
+      width: 2px;
+      background: rgba(255,255,255,0.9);
+      transform: translateX(-50%);
+      pointer-events: none;
+      z-index: 4;
+    }
+    .ba-handle__knob {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 44px; height: 44px;
+      background: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--navy-dark);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.35);
+    }
+    .ba-handle__knob svg {
+      width: 20px; height: 20px;
     }
     .why-item__content {
       display: flex;
@@ -336,16 +514,17 @@
     .who__photos {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 12px;
+      gap: 10px;
     }
     .who__photo {
       border-radius: 6px;
       overflow: hidden;
       position: relative;
+      height: 190px;
     }
     .who__photo:first-child {
       grid-column: 1 / -1;
-      height: 200px;
+      height: 260px;
     }
     .who__photo img {
       width: 100%; height: 100%;
@@ -364,15 +543,18 @@
     .who__content .section-label { color: var(--blue-light); }
     .who__content p {
       color: rgba(255,255,255,0.8);
-      font-size: 22px;
+      font-size: 18px;
       line-height: 1.75;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
     .who__stats {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      margin: 32px 0;
+      gap: 16px;
+      margin: 24px 0;
+      padding: 20px 0;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
     }
     .who__stat { text-align: center; }
     .who__stat-num {
@@ -803,7 +985,7 @@
       .mobile-nav.open { display: flex; position: relative; z-index: 50; }
       .services__grid { grid-template-columns: repeat(2, 1fr); }
       .why-item { grid-template-columns: 1fr; }
-      .why-item__image { height: 200px; }
+      .why-item__image { height: 260px; }
       .why-item:nth-child(even) .why-item__image { order: 0; }
       .why-item:nth-child(even) .why-item__content { order: 1; }
       .who__inner { grid-template-columns: 1fr; }
@@ -862,7 +1044,7 @@
       </button>
     </div>
     <a href="/" class="header__logo">
-      <img src="brand_assets/Logo_Transparrnt.png" alt="Select Roofing" />
+      <img src="brand_assets/logos/Logo_Transparrnt.png" alt="Select Roofing" />
     </a>
     <nav class="nav">
       <div class="nav__dropdown-wrap">
@@ -906,7 +1088,7 @@
   <div class="container">
     <div class="services__header">
       <h2 class="section-title section-title--center">Our Services</h2>
-      <p style="color:var(--gray-mid);max-width:520px;margin:0 auto;font-size:22px;">From full roof replacements to new windows and gutters, we handle every project with the precision and care your home deserves.</p>
+      <p style="color:var(--gray-mid);max-width:720px;margin:0 auto;font-size:22px;">From full roof replacements to new windows and gutters, we handle every project with the precision and care your home deserves.</p>
     </div>
     <div class="services__grid">
 
@@ -959,13 +1141,13 @@
   <p class="partners__label">Trusted brands we install</p>
   <div class="container">
     <div class="partners__logos">
-      <div class="partner-logo"><img src="brand_assets/Owens Corning.png" alt="Owens Corning" style="width:82px;" /></div>
-      <div class="partner-logo"><img src="brand_assets/Certainteed-Logo.png" alt="CertainTeed" style="width:128px;" /></div>
-      <div class="partner-logo"><img src="brand_assets/Velux Logo.png" alt="Velux" style="width:96px;" /></div>
-      <div class="partner-logo"><img src="brand_assets/james-hardie-logo.png" alt="James Hardie" style="width:152px;" /></div>
-      <div class="partner-logo"><img src="brand_assets/AZEK-Exteriors-Logo-2023.png" alt="AZEK Exteriors" style="width:112px;" /></div>
-      <div class="partner-logo"><img src="brand_assets/ProVia-logo-(10-15-11).webp" alt="ProVia" style="width:112px;" /></div>
-      <div class="partner-logo"><img src="brand_assets/Englert-Logo.png" alt="Englert" style="width:122px;" /></div>
+      <div class="partner-logo"><img src="brand_assets/logos/Owens Corning.png" alt="Owens Corning" style="width:82px;" /></div>
+      <div class="partner-logo"><img src="brand_assets/logos/Certainteed-Logo.png" alt="CertainTeed" style="width:128px;" /></div>
+      <div class="partner-logo"><img src="brand_assets/logos/Velux Logo.png" alt="Velux" style="width:96px;" /></div>
+      <div class="partner-logo"><img src="brand_assets/logos/james-hardie-logo.png" alt="James Hardie" style="width:152px;" /></div>
+      <div class="partner-logo"><img src="brand_assets/logos/AZEK-Exteriors-Logo-2023.png" alt="AZEK Exteriors" style="width:112px;" /></div>
+      <div class="partner-logo"><img src="brand_assets/logos/ProVia-logo-(10-15-11).webp" alt="ProVia" style="width:112px;" /></div>
+      <div class="partner-logo"><img src="brand_assets/logos/Englert-Logo.png" alt="Englert" style="width:122px;" /></div>
     </div>
   </div>
 </section>
@@ -983,22 +1165,72 @@
     <!-- 1 -->
     <div class="why-item">
       <div class="why-item__image">
-        <img src="brand_assets/Solutions for Home.jpeg" alt="Hassle Free Roofing" />
+        <img src="brand_assets/images/Header 2.jpeg" alt="" />
+        <div class="process-anim" id="processAnim">
+          <div class="process-carousel" id="processCarousel">
+            <div class="pc-slides" id="pcSlides">
+
+              <div class="pc-slide active" data-index="0">
+                <span class="pc-step-num">Step 01 of 05</span>
+                <div class="pc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
+                <span class="pc-label">Free Inspection</span>
+                <span class="pc-sub">Full roof assessment</span>
+              </div>
+
+              <div class="pc-slide" data-index="1">
+                <span class="pc-step-num">Step 02 of 05</span>
+                <div class="pc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+                <span class="pc-label">Written Estimate</span>
+                <span class="pc-sub">Itemized pricing upfront</span>
+              </div>
+
+              <div class="pc-slide" data-index="2">
+                <span class="pc-step-num">Step 03 of 05</span>
+                <div class="pc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <span class="pc-label">Insurance Filed</span>
+                <span class="pc-sub">We handle the paperwork</span>
+              </div>
+
+              <div class="pc-slide" data-index="3">
+                <span class="pc-step-num">Step 04 of 05</span>
+                <div class="pc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+                <span class="pc-label">Expert Installation</span>
+                <span class="pc-sub">Certified crew, start to finish</span>
+              </div>
+
+              <div class="pc-slide" data-index="4">
+                <span class="pc-step-num">Step 05 of 05</span>
+                <div class="pc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+                <span class="pc-label">Final Walkthrough</span>
+                <span class="pc-sub">Sign-off inspection with you present</span>
+              </div>
+
+            </div>
+            <div class="pc-progress"><div class="pc-progress-fill" id="pcProgressFill"></div></div>
+            <div class="pc-dots" id="pcDots">
+              <div class="pc-dot active" data-i="0"></div>
+              <div class="pc-dot" data-i="1"></div>
+              <div class="pc-dot" data-i="2"></div>
+              <div class="pc-dot" data-i="3"></div>
+              <div class="pc-dot" data-i="4"></div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="why-item__content">
-        <span class="why-item__num">01 — We Handle Everything</span>
+        <span class="why-item__num">01 · We Handle Everything</span>
         <h3 class="why-item__title">We Handle Everything</h3>
-        <p class="why-item__desc">We handle everything from the initial inspection to the final walkthrough. No hidden fees, no surprise visits — just a seamless, guided experience from start to finish. We coordinate with your insurance so you don't have to lift a finger.</p>
+        <p class="why-item__desc">We handle everything from the initial inspection to the final walkthrough. No hidden fees, no surprise visits, just a seamless, guided experience from start to finish. We coordinate with your insurance so you don't have to lift a finger.</p>
       </div>
     </div>
 
     <!-- 2 -->
     <div class="why-item">
       <div class="why-item__image">
-        <img src="brand_assets/Solutions.jpeg" alt="Simple roofing process" />
+        <img src="brand_assets/images/Solutions.jpeg" alt="Simple roofing process" />
       </div>
       <div class="why-item__content">
-        <span class="why-item__num">02 — Total Transparency</span>
+        <span class="why-item__num">02 · Total Transparency</span>
         <h3 class="why-item__title">Total Transparency</h3>
         <p class="why-item__desc">No surprises, no fine print. We provide a detailed, itemized quote before any work begins and keep you informed at every milestone. You'll always know exactly what's happening on your roof and why.</p>
       </div>
@@ -1007,24 +1239,47 @@
     <!-- 3 -->
     <div class="why-item">
       <div class="why-item__image">
-        <img src="brand_assets/Roofing Mats.png" alt="Quality roofing materials" />
+        <img src="brand_assets/images/Roofing Mats.png" alt="Quality roofing materials" />
       </div>
       <div class="why-item__content">
-        <span class="why-item__num">03 — Premium Craftsmanship</span>
+        <span class="why-item__num">03 · Premium Craftsmanship</span>
         <h3 class="why-item__title">Premium Craftsmanship</h3>
         <p class="why-item__desc">We use only top-tier materials from industry-leading manufacturers. Every installation is backed by both the manufacturer's product warranty and our own comprehensive workmanship guarantee for total peace of mind.</p>
       </div>
     </div>
 
-    <!-- 4 -->
-    <div class="why-item">
+    <!-- 4, Before / After -->
+    <div class="why-item why-item--slider">
       <div class="why-item__image">
-        <img src="brand_assets/Clean_job_site.jpeg" alt="Clean, efficient roofing installation" />
+        <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <source src="brand_assets/images/Smooth_roof_transition.mp4" type="video/mp4" />
+        </video>
+        <!-- BEFORE/AFTER SLIDER (saved for later)
+        <div class="ba-slider" id="baSlider">
+          <div class="ba-before">
+            <img src="brand_assets/images/Roof_before.jpeg" alt="Roof before replacement" />
+          </div>
+          <div class="ba-after" id="baAfter" style="clip-path: inset(0 0 0 50%);">
+            <img src="brand_assets/images/Roof_after.JPG" alt="Roof after replacement" />
+          </div>
+          <span class="ba-label ba-label--before">Before</span>
+          <span class="ba-label ba-label--after">After</span>
+          <div class="ba-handle" id="baHandle">
+            <div class="ba-handle__knob">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+                <line x1="15" y1="12" x2="9" y2="12" style="opacity:0"></line>
+                <polyline points="9 6 15 12 9 18" transform="translate(6,0)"></polyline>
+              </svg>
+            </div>
+          </div>
+        </div>
+        END BEFORE/AFTER SLIDER -->
       </div>
       <div class="why-item__content">
-        <span class="why-item__num">04 — Respect for Your Property</span>
-        <h3 class="why-item__title">Respect for Your Property</h3>
-        <p class="why-item__desc">Your home deserves to be treated with care. Every job ends with a thorough site sweep — nails, debris, and old materials fully removed. We protect your landscaping throughout the project and leave your property cleaner than we found it.</p>
+        <span class="why-item__num">04 · Done Fast, Done Right</span>
+        <h3 class="why-item__title">Replaced in Days</h3>
+        <p class="why-item__desc">Most homeowners dread weeks of disruption. Our experienced crews complete a full roof replacement in just 1–3 days, clean, efficient, and built to last. You'll have a brand-new roof before you know it.</p>
       </div>
     </div>
 
@@ -1037,13 +1292,13 @@
     <div class="who__inner">
       <div class="who__photos">
         <div class="who__photo">
-          <img src="brand_assets/roofing.jpeg" alt="Select Roofing Team" style="height:200px;" />
+          <img src="brand_assets/images/roofing.jpeg" alt="Select Roofing Team" />
         </div>
-        <div class="who__photo" style="height:160px;">
-          <img src="brand_assets/Windows.jpeg" alt="Roofing work" style="height:160px;" />
+        <div class="who__photo">
+          <img src="brand_assets/images/Clean Job.png" alt="Roofing work" />
         </div>
-        <div class="who__photo" style="height:160px;">
-          <img src="brand_assets/Gutters.jpeg" alt="Roofing project" style="height:160px;" />
+        <div class="who__photo">
+          <img src="brand_assets/images/Roof-about us.JPG" alt="Roofing project" />
         </div>
       </div>
       <div class="who__content">
@@ -1063,8 +1318,8 @@
             <div class="who__stat-label">Workmanship Guarantee</div>
           </div>
         </div>
-        <p>Select Roofing was founded on a simple principle: every homeowner deserves a contractor they can trust. We started this company to bring honest pricing, quality materials, and reliable craftsmanship to homeowners across Virginia.</p>
-        <p>From first inspection to final cleanup, we handle every step of the process ourselves — no subcontracting, no shortcuts, and no surprises on your final bill.</p>
+        <p>Select Roofing is a family-owned business built on a simple principle: every homeowner deserves a contractor they can trust. We started this company to bring honest pricing, quality materials, and reliable craftsmanship to families across Virginia, West Virginia, and Maryland.</p>
+        <p>Because we're family-owned, your home gets the same care and attention we'd give our own. From first inspection to final cleanup, we handle every step ourselves, no subcontracting, no shortcuts, and no surprises on your final bill.</p>
         <a href="#assessment" class="btn btn--gold">Get Your Free Assessment</a>
       </div>
     </div>
@@ -1159,9 +1414,9 @@
     <div class="footer__grid">
       <div>
         <div class="footer__logo">
-          <img src="brand_assets/Logo_Transparrnt.png" alt="Select Roofing" />
+          <img src="brand_assets/logos/Logo_Transparrnt.png" alt="Select Roofing" />
         </div>
-        <p class="footer__about">Premier roofing specialists serving Northern Virginia &amp; surrounding areas. Licensed, insured, and dedicated to delivering premium craftsmanship on every project — residential and commercial.</p>
+        <p class="footer__about">Premier roofing specialists serving Northern Virginia &amp; surrounding areas. Licensed, insured, and dedicated to delivering premium craftsmanship on every project, residential and commercial.</p>
         <div class="footer__social">
           <a href="#" aria-label="Facebook">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
@@ -1218,7 +1473,7 @@
     </div>
 
     <div class="footer__bottom">
-      <div class="footer__copy">&copy; 2026 Select Roofing. All rights reserved. Licensed &amp; Insured — VA Lic. #2705123456</div>
+      <div class="footer__copy">&copy; 2026 Select Roofing. All rights reserved. Licensed &amp; Insured. VA Lic. #2705123456</div>
       <div class="footer__bottom-links">
         <a href="#">Privacy Policy</a>
         <a href="#">Terms of Service</a>
@@ -1249,6 +1504,11 @@
     entries.forEach(el => {
       if (el.isIntersecting) {
         el.target.style.animation = 'fadeUp 0.7s cubic-bezier(0.22,1,0.36,1) forwards';
+        el.target.addEventListener('animationend', () => {
+          el.target.style.opacity = '1';
+          el.target.style.transform = '';
+          el.target.style.animation = '';
+        }, { once: true });
         observer.unobserve(el.target);
       }
     });
@@ -1258,6 +1518,98 @@
     el.style.opacity = '0';
     observer.observe(el);
   });
+
+  // Process carousel
+  (function() {
+    const STEP_DURATION = 2800; // ms per slide
+    const slides = Array.from(document.querySelectorAll('.pc-slide'));
+    const dots   = Array.from(document.querySelectorAll('.pc-dot'));
+    const fill   = document.getElementById('pcProgressFill');
+    if (!slides.length) return;
+
+    let current = 0;
+    let timer = null;
+    let fillTimer = null;
+    let started = false;
+
+    function goTo(next) {
+      const prev = current;
+      if (next === prev) return;
+      slides[prev].classList.add('exit');
+      slides[prev].classList.remove('active');
+      dots[prev].classList.remove('active');
+      setTimeout(() => slides[prev].classList.remove('exit'), 400);
+      slides[next].classList.add('active');
+      dots[next].classList.add('active');
+      current = next;
+      startProgress();
+    }
+
+    function advance() {
+      goTo((current + 1) % slides.length);
+    }
+
+    function startProgress() {
+      clearTimeout(fillTimer);
+      if (fill) {
+        fill.style.transition = 'none';
+        fill.style.width = '0%';
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            fill.style.transition = `width ${STEP_DURATION}ms linear`;
+            fill.style.width = '100%';
+          });
+        });
+      }
+      clearTimeout(timer);
+      timer = setTimeout(advance, STEP_DURATION);
+    }
+
+    function startCarousel() {
+      if (started) return;
+      started = true;
+      startProgress();
+    }
+
+    // Dot clicks
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => goTo(i));
+    });
+
+    // Start on scroll into view
+    const obs = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) {
+        startCarousel();
+        obs.disconnect();
+      }
+    }, { threshold: 0.4 });
+    const anim = document.getElementById('processAnim');
+    if (anim) obs.observe(anim);
+  })();
+
+  // Before / After slider
+  (function() {
+    const slider = document.getElementById('baSlider');
+    if (!slider) return;
+    const after  = document.getElementById('baAfter');
+    const handle = document.getElementById('baHandle');
+    let dragging = false;
+
+    function setPos(clientX) {
+      const rect = slider.getBoundingClientRect();
+      let pct = (clientX - rect.left) / rect.width;
+      pct = Math.max(0.02, Math.min(0.98, pct));
+      after.style.clipPath  = `inset(0 0 0 ${pct * 100}%)`;
+      handle.style.left = `${pct * 100}%`;
+    }
+
+    slider.addEventListener('mousedown',  e => { dragging = true; setPos(e.clientX); });
+    window.addEventListener('mousemove',  e => { if (dragging) setPos(e.clientX); });
+    window.addEventListener('mouseup',    () => { dragging = false; });
+    slider.addEventListener('touchstart', e => { dragging = true; setPos(e.touches[0].clientX); }, { passive: true });
+    window.addEventListener('touchmove',  e => { if (dragging) setPos(e.touches[0].clientX); }, { passive: true });
+    window.addEventListener('touchend',   () => { dragging = false; });
+  })();
 
   // Review "Read more / Show less" toggle
   function toggleReview(btn) {
