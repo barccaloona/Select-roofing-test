@@ -129,16 +129,12 @@
       gap: 24px;
     }
     .service-card {
-      background: linear-gradient(160deg, var(--navy) 0%, var(--navy-dark) 100%);
-      border-radius: 12px;
-      padding: 56px 48px 48px;
-      box-shadow:
-        0 1px 0 0 rgba(255,255,255,0.09) inset,
-        0 2px 6px rgba(18,34,56,0.12),
-        0 8px 24px rgba(18,34,56,0.18),
-        0 20px 48px rgba(18,34,56,0.14);
-      border: 1px solid rgba(122,170,206,0.14);
-      border-top-color: rgba(255,255,255,0.12);
+      background: var(--cream);
+      border-radius: 6px;
+      padding: 36px 28px 32px;
+      text-align: center;
+      box-shadow: var(--shadow-card);
+      border-bottom: 3px solid transparent;
       transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
       display: flex;
       flex-direction: column;
@@ -146,58 +142,48 @@
       cursor: pointer;
     }
     .service-card:hover {
-      border-color: rgba(122,170,206,0.32);
-      border-top-color: rgba(255,255,255,0.18);
-      transform: translateY(-6px);
-      box-shadow:
-        0 1px 0 0 rgba(255,255,255,0.10) inset,
-        0 4px 12px rgba(18,34,56,0.18),
-        0 16px 40px rgba(18,34,56,0.22),
-        0 32px 64px rgba(18,34,56,0.16),
-        0 0 40px rgba(122,170,206,0.08);
+      border-color: var(--blue-accent);
+      transform: translateY(-5px);
+      box-shadow: 0 12px 36px rgba(27,49,99,0.16);
     }
     .service-card__icon {
-      width: 72px; height: 72px;
-      background: rgba(122,170,206,0.12);
-      border-radius: 16px;
-      border: 1px solid rgba(122,170,206,0.2);
+      width: 64px; height: 64px;
+      background: var(--navy);
+      border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      margin-bottom: 36px;
-      transition: background 0.25s, border-color 0.25s, box-shadow 0.25s;
+      margin: 0 auto 20px;
+      transition: background 0.25s;
     }
-    .service-card:hover .service-card__icon {
-      background: var(--blue-accent);
-      border-color: var(--blue-accent);
-      box-shadow: 0 0 24px rgba(122,170,206,0.35);
-    }
-    .service-card__icon svg { width: 36px; height: 36px; fill: var(--white); }
+    .service-card:hover .service-card__icon { background: var(--blue-accent); }
+    .service-card__icon svg { width: 30px; height: 30px; fill: var(--white); }
     .service-card__title {
       font-size: var(--text-lg);
-      font-weight: 800;
-      letter-spacing: 0.02em;
-      text-transform: none;
-      color: var(--white);
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--navy);
       margin-bottom: 14px;
     }
     .service-card__desc {
-      font-size: var(--text-md);
-      color: rgba(255,255,255,0.45);
+      font-size: var(--text-body-sz);
+      color: var(--gray-mid);
       line-height: 1.6;
       flex: 1;
     }
     .service-card__arrow {
-      margin-top: 36px;
-      font-size: var(--text-base);
+      display: inline-block;
+      margin-top: 20px;
+      align-self: center;
+      padding: 9px 20px;
+      font-size: var(--text-sm);
       font-weight: 700;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--blue-accent);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      transition: gap 0.2s ease;
+      background: linear-gradient(140deg, #7aaace 0%, #4d7ca4 100%);
+      color: var(--white);
+      border-radius: var(--radius);
+      box-shadow: 0 4px 14px rgba(77,124,164,0.35);
     }
-    .service-card:hover .service-card__arrow { gap: 10px; }
     .service-card__brands { display: none; }
 
     /* ─── PROCESS CAROUSEL ──────────────────────────────────────── */
@@ -1138,8 +1124,8 @@
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 13h1v7c0 .55.45 1 1 1h14c.55 0 1-.45 1-1v-7h1c.4 0 .75-.24.91-.6.16-.37.07-.8-.21-1.07l-9-9c-.39-.39-1.03-.39-1.42 0l-9 9c-.28.28-.37.71-.2 1.08.16.37.51.59.91.59z"/></svg>
         </div>
         <h3 class="service-card__title">Roofing</h3>
-        <p class="service-card__desc">Repairs, replacements, new installs.</p>
-        <span class="service-card__arrow">Learn More <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+        <p class="service-card__desc">Full replacements, storm repairs, and new installations using premium materials, backed by our industry-leading warranty.</p>
+        <span class="service-card__arrow">Learn More</span>
       </a>
 
       <!-- Siding -->
@@ -1148,8 +1134,8 @@
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2 6h20v2H2zm0 4h20v2H2zm0 4h20v2H2zm0 4h20v2H2z"/></svg>
         </div>
         <h3 class="service-card__title">Siding</h3>
-        <p class="service-card__desc">Durable protection, refreshed look.</p>
-        <span class="service-card__arrow">Learn More <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+        <p class="service-card__desc">Beautiful, low-maintenance siding that protects your home from the elements and boosts its curb appeal for years to come.</p>
+        <span class="service-card__arrow">Learn More</span>
       </a>
 
       <!-- Windows & Doors -->
@@ -1158,8 +1144,8 @@
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-7-2h2V7h-2v10zm-4 0h2V7H8v10zm8 0h2V7h-2v10z"/></svg>
         </div>
         <h3 class="service-card__title">Windows &amp; Doors</h3>
-        <p class="service-card__desc">Efficient installs, better curb appeal.</p>
-        <span class="service-card__arrow">Learn More <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+        <p class="service-card__desc">Energy-efficient windows and doors that reduce heating costs, improve comfort, and give your home a fresh, polished look.</p>
+        <span class="service-card__arrow">Learn More</span>
       </a>
 
       <!-- Gutters -->
@@ -1168,8 +1154,8 @@
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 18H3c-1.1 0-2-.9-2-2v-1h22v1c0 1.1-.9 2-2 2zm1-5H2V5c0-1.1.9-2 2-2h16c1.1 0 2 .9 2 2v8z"/></svg>
         </div>
         <h3 class="service-card__title">Gutters</h3>
-        <p class="service-card__desc">Install, clean, protect year-round.</p>
-        <span class="service-card__arrow">Learn More <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+        <p class="service-card__desc">Seamless gutter installation and cleaning that channels water away from your foundation and keeps your home protected year-round.</p>
+        <span class="service-card__arrow">Learn More</span>
       </a>
 
     </div>
