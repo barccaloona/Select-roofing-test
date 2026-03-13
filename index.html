@@ -41,7 +41,7 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      font-size: 14px;
+      font-size: var(--text-md);
       font-weight: 700;
       letter-spacing: 0.22em;
       text-transform: uppercase;
@@ -59,7 +59,7 @@
     }
     .hero__title {
       font-family: var(--font-head);
-      font-size: clamp(34px, 4.5vw, 68px);
+      font-size: var(--text-hero);
       white-space: nowrap;
       font-weight: 400;
       letter-spacing: -0.01em;
@@ -79,7 +79,7 @@
       flex-wrap: wrap;
     }
     .hero__actions .btn--gold {
-      font-size: 15px;
+      font-size: var(--text-md);
       padding: 18px 52px;
       letter-spacing: 0.14em;
     }
@@ -114,71 +114,91 @@
       z-index: 1;
       margin-top: -72px;
       clip-path: polygon(0 0, 50% 72px, 100% 0, 100% 100%, 0 100%);
+      overflow: hidden;
     }
+    .services__deco { display: none; }
     .services__header {
       text-align: center;
       margin-bottom: 48px;
       padding-top: 0;
     }
+    .services .container { max-width: 1440px; }
     .services__grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 24px;
     }
     .service-card {
-      background: var(--cream);
-      border-radius: 6px;
-      padding: 36px 28px 32px;
-      text-align: center;
-      box-shadow: var(--shadow-card);
-      border-bottom: 3px solid transparent;
+      background: linear-gradient(160deg, var(--navy) 0%, var(--navy-dark) 100%);
+      border-radius: 12px;
+      padding: 56px 48px 48px;
+      box-shadow:
+        0 1px 0 0 rgba(255,255,255,0.09) inset,
+        0 2px 6px rgba(18,34,56,0.12),
+        0 8px 24px rgba(18,34,56,0.18),
+        0 20px 48px rgba(18,34,56,0.14);
+      border: 1px solid rgba(122,170,206,0.14);
+      border-top-color: rgba(255,255,255,0.12);
       transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
       display: flex;
       flex-direction: column;
+      text-decoration: none;
+      cursor: pointer;
     }
     .service-card:hover {
-      border-color: var(--blue-accent);
-      transform: translateY(-5px);
-      box-shadow: 0 12px 36px rgba(27,49,99,0.16);
+      border-color: rgba(122,170,206,0.32);
+      border-top-color: rgba(255,255,255,0.18);
+      transform: translateY(-6px);
+      box-shadow:
+        0 1px 0 0 rgba(255,255,255,0.10) inset,
+        0 4px 12px rgba(18,34,56,0.18),
+        0 16px 40px rgba(18,34,56,0.22),
+        0 32px 64px rgba(18,34,56,0.16),
+        0 0 40px rgba(122,170,206,0.08);
     }
     .service-card__icon {
-      width: 64px; height: 64px;
-      background: var(--navy);
-      border-radius: 50%;
+      width: 72px; height: 72px;
+      background: rgba(122,170,206,0.12);
+      border-radius: 16px;
+      border: 1px solid rgba(122,170,206,0.2);
       display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 20px;
-      transition: background 0.25s;
+      margin-bottom: 36px;
+      transition: background 0.25s, border-color 0.25s, box-shadow 0.25s;
     }
-    .service-card:hover .service-card__icon { background: var(--blue-accent); }
-    .service-card__icon svg { width: 30px; height: 30px; fill: var(--white); }
+    .service-card:hover .service-card__icon {
+      background: var(--blue-accent);
+      border-color: var(--blue-accent);
+      box-shadow: 0 0 24px rgba(122,170,206,0.35);
+    }
+    .service-card__icon svg { width: 36px; height: 36px; fill: var(--white); }
     .service-card__title {
-      font-size: 14px;
-      font-weight: 900;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--navy);
-      margin-bottom: 12px;
-      min-height: 2.6em;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      font-size: var(--text-lg);
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      text-transform: none;
+      color: var(--white);
+      margin-bottom: 14px;
     }
     .service-card__desc {
-      font-size: 16px;
-      color: var(--gray-mid);
+      font-size: var(--text-md);
+      color: rgba(255,255,255,0.45);
       line-height: 1.6;
-      margin-bottom: 14px;
       flex: 1;
     }
-    .service-card__brands {
-      font-size: 10px;
+    .service-card__arrow {
+      margin-top: 36px;
+      font-size: var(--text-base);
       font-weight: 700;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--blue-accent);
-      margin-bottom: 20px;
-      line-height: 1.8;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s ease;
     }
+    .service-card:hover .service-card__arrow { gap: 10px; }
+    .service-card__brands { display: none; }
 
     /* ─── PROCESS CAROUSEL ──────────────────────────────────────── */
     .process-anim {
@@ -241,7 +261,7 @@
       transition: opacity 0.35s ease, transform 0.35s ease;
     }
     .pc-step-num {
-      font-size: 13px;
+      font-size: var(--text-base);
       font-weight: 700;
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -262,7 +282,7 @@
     }
     .pc-icon svg { width: 38px; height: 38px; }
     .pc-label {
-      font-size: 19px;
+      font-size: var(--text-body-sz);
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -270,7 +290,7 @@
       text-align: center;
     }
     .pc-sub {
-      font-size: 14px;
+      font-size: var(--text-md);
       color: rgba(255,255,255,0.45);
       text-align: center;
     }
@@ -311,14 +331,14 @@
     /* ─── PARTNERS ──────────────────────────────────────────────── */
     .partners {
       background: var(--white);
-      padding: 60px 0;
+      padding: 80px 0;
       overflow: hidden;
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
     }
     .partners__label {
       text-align: center;
-      font-size: 10px;
+      font-size: var(--text-xs);
       font-weight: 700;
       letter-spacing: 0.28em;
       text-transform: uppercase;
@@ -343,11 +363,8 @@
       display: block;
       height: auto;
       max-width: none;
-      opacity: 0.75;
-      transition: opacity 0.3s;
-      filter: grayscale(30%);
     }
-    .partner-logo:hover img { opacity: 1; filter: grayscale(0%); }
+    .partner-logo:hover img { }
     @media (max-width: 900px) {
       .partners__logos { gap: 0; }
       .partner-logo {
@@ -364,7 +381,7 @@
     /* ─── WHY CHOOSE US ─────────────────────────────────────────── */
     .why {
       background: var(--cream);
-      padding: 80px 0;
+      padding: 120px 0;
     }
     .why__header {
       text-align: center;
@@ -474,7 +491,7 @@
     }
     .why-item:nth-child(even) .why-item__content { background: var(--cream); }
     .why-item__num {
-      font-size: 11px;
+      font-size: var(--text-xs);
       font-weight: 700;
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -482,7 +499,7 @@
       margin-bottom: 10px;
     }
     .why-item__title {
-      font-size: 22px;
+      font-size: var(--text-lg);
       font-weight: 900;
       letter-spacing: 0.04em;
       text-transform: uppercase;
@@ -490,7 +507,7 @@
       margin-bottom: 16px;
     }
     .why-item__desc {
-      font-size: 22px;
+      font-size: var(--text-lg);
       color: var(--text-body);
       line-height: 1.7;
     }
@@ -502,6 +519,10 @@
       position: relative;
       overflow: hidden;
       scroll-margin-top: 76px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
     .who::before {
       content: '';
@@ -512,30 +533,34 @@
       background: radial-gradient(circle, rgba(122,170,206,0.18) 0%, transparent 70%);
       pointer-events: none;
     }
+    .who .container { max-width: 1360px; padding: 0 40px; }
     .who__inner {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
+      gap: 48px;
+      align-items: stretch;
     }
     .who__photos {
       display: grid;
       grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
       gap: 10px;
+      height: 100%;
+      min-height: 560px;
     }
     .who__photo {
-      border-radius: 6px;
+      border-radius: 8px;
       overflow: hidden;
       position: relative;
-      height: 190px;
+      min-height: 0;
     }
     .who__photo:first-child {
       grid-column: 1 / -1;
-      height: 260px;
     }
     .who__photo img {
       width: 100%; height: 100%;
       object-fit: cover;
+      object-position: center 30%;
       transition: transform 0.45s ease;
     }
     .who__photo:hover img { transform: scale(1.04); }
@@ -546,11 +571,11 @@
       background: linear-gradient(to bottom, transparent 40%, rgba(36,63,85,0.45));
       pointer-events: none;
     }
-    .who__content {}
+    .who__content { padding: 48px 0; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
     .who__content .section-label { color: var(--blue-light); }
     .who__content p {
       color: rgba(255,255,255,0.8);
-      font-size: 18px;
+      font-size: var(--text-body-sz);
       line-height: 1.75;
       margin-bottom: 16px;
     }
@@ -565,13 +590,13 @@
     }
     .who__stat { text-align: center; }
     .who__stat-num {
-      font-size: 32px;
+      font-size: var(--text-stat);
       font-weight: 900;
       color: var(--blue-light);
       line-height: 1;
     }
     .who__stat-label {
-      font-size: 11px;
+      font-size: var(--text-xs);
       font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -582,7 +607,7 @@
     /* ─── QUALITY ───────────────────────────────────────────────── */
     .quality {
       background: var(--white);
-      padding: 72px 0;
+      padding: 120px 0;
     }
     .quality__header {
       text-align: center;
@@ -614,7 +639,7 @@
     }
     .quality-item__icon svg { width: 28px; height: 28px; fill: var(--navy); }
     .quality-item__title {
-      font-size: 13px;
+      font-size: var(--text-base);
       font-weight: 900;
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -622,7 +647,7 @@
       margin-bottom: 8px;
     }
     .quality-item__sub {
-      font-size: 13px;
+      font-size: var(--text-base);
       color: var(--gray-mid);
       line-height: 1.5;
     }
@@ -652,7 +677,7 @@
       border-radius: 50%;
       border: 3px solid var(--navy);
       display: flex; align-items: center; justify-content: center;
-      font-size: 10px;
+      font-size: var(--text-xs);
       font-weight: 900;
       letter-spacing: 0.05em;
       text-transform: uppercase;
@@ -661,7 +686,7 @@
       line-height: 1.2;
     }
     .badge__name {
-      font-size: 10px;
+      font-size: var(--text-xs);
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -671,7 +696,7 @@
     /* ─── REVIEWS ───────────────────────────────────────────────── */
     .reviews {
       background: var(--cream);
-      padding: 80px 0;
+      padding: 120px 0;
       position: relative;
       overflow: hidden;
     }
@@ -688,7 +713,7 @@
     }
     .reviews__title {
       font-family: var(--font-head);
-      font-size: clamp(28px, 3.5vw, 42px);
+      font-size: var(--text-reviews);
       font-weight: 700;
       color: var(--navy);
       margin-bottom: 10px;
@@ -702,7 +727,7 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      font-size: 13px;
+      font-size: var(--text-base);
       color: var(--gray-mid);
       font-weight: 700;
       letter-spacing: 0.08em;
@@ -756,7 +781,7 @@
     }
     .review-card__stars svg { width: 15px; height: 15px; fill: #f4b942; }
     .review-card__text {
-      font-size: 21px;
+      font-size: var(--text-lg);
       line-height: 1.75;
       color: var(--text-body);
       position: relative;
@@ -776,7 +801,7 @@
       border: none;
       padding: 0;
       margin-top: 6px;
-      font-size: 12px;
+      font-size: var(--text-sm);
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -800,7 +825,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 15px;
+      font-size: var(--text-md);
       font-weight: 900;
       color: var(--white);
       flex-shrink: 0;
@@ -814,14 +839,14 @@
       border-radius: 50%;
     }
     .review-card__name {
-      font-size: 13px;
+      font-size: var(--text-base);
       font-weight: 900;
       color: var(--navy);
       letter-spacing: 0.04em;
       text-transform: uppercase;
     }
     .review-card__date {
-      font-size: 12px;
+      font-size: var(--text-sm);
       color: var(--gray-mid);
       margin-top: 2px;
     }
@@ -833,7 +858,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-size: 12px;
+      font-size: var(--text-sm);
       font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -846,14 +871,14 @@
       .reviews__grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 580px) {
-      .reviews { padding: 60px 0; }
+      .reviews { padding: 80px 0; }
       .reviews__grid { grid-template-columns: 1fr; }
     }
 
     /* ─── HERO CTA ──────────────────────────────────────────────── */
     .cta-banner {
       background: var(--navy-dark);
-      padding: 64px 0;
+      padding: 100px 0;
       position: relative;
       overflow: hidden;
     }
@@ -873,7 +898,7 @@
     }
     .cta-banner__title {
       font-family: var(--font-body);
-      font-size: clamp(22px, 3.5vw, 36px);
+      font-size: var(--text-cta);
       font-weight: 900;
       letter-spacing: 0.05em;
       text-transform: uppercase;
@@ -882,7 +907,7 @@
     }
     .cta-banner__sub {
       color: rgba(255,255,255,0.65);
-      font-size: 22px;
+      font-size: var(--text-lg);
       margin-bottom: 32px;
     }
     .cta-banner__divider {
@@ -914,7 +939,7 @@
       margin-bottom: 18px;
     }
     .footer__about {
-      font-size: 14px;
+      font-size: var(--text-md);
       line-height: 1.7;
       margin-bottom: 20px;
     }
@@ -925,12 +950,12 @@
       background: rgba(255,255,255,0.08);
       display: flex; align-items: center; justify-content: center;
       color: rgba(255,255,255,0.6);
-      font-size: 13px;
+      font-size: var(--text-xs);
       transition: background 0.2s, color 0.2s;
     }
     .footer__social a:hover { background: var(--blue-accent); color: var(--white); }
     .footer__col-title {
-      font-size: 11px;
+      font-size: var(--text-xs);
       font-weight: 700;
       letter-spacing: 0.18em;
       text-transform: uppercase;
@@ -939,7 +964,7 @@
     }
     .footer__links { display: flex; flex-direction: column; gap: 10px; }
     .footer__links a {
-      font-size: 14px;
+      font-size: var(--text-md);
       color: rgba(255,255,255,0.6);
       transition: color 0.2s;
     }
@@ -948,7 +973,7 @@
       display: flex;
       gap: 10px;
       align-items: flex-start;
-      font-size: 14px;
+      font-size: var(--text-md);
       margin-bottom: 12px;
     }
     .footer__contact-icon {
@@ -966,12 +991,12 @@
       gap: 10px;
     }
     .footer__copy {
-      font-size: 12px;
+      font-size: var(--text-sm);
       color: rgba(255,255,255,0.38);
     }
     .footer__bottom-links { display: flex; gap: 16px; }
     .footer__bottom-links a {
-      font-size: 12px;
+      font-size: var(--text-sm);
       color: rgba(255,255,255,0.38);
       transition: color 0.2s;
     }
@@ -984,7 +1009,7 @@
       .hero__title { margin-bottom: 32px; white-space: normal; }
       .hero__sub { max-width: 100%; }
       .hero__text .hero__actions { justify-content: center; }
-      .hero__actions .btn--gold { font-size: 12px; padding: 12px 24px; letter-spacing: 0.1em; }
+      .hero__actions .btn--gold { font-size: var(--text-sm); padding: 12px 24px; letter-spacing: 0.1em; }
       .header__inner { display: flex; justify-content: space-between; flex-direction: row-reverse; }
       .header__right .nav__cta { display: none; }
       .nav { display: none; }
@@ -1000,8 +1025,8 @@
       .process-carousel { gap: 20px; }
       .pc-icon { width: 72px; height: 72px; }
       .pc-icon svg { width: 28px; height: 28px; }
-      .pc-label { font-size: 15px; }
-      .pc-step-num { font-size: 11px; }
+      .pc-label { font-size: var(--text-md); }
+      .pc-step-num { font-size: var(--text-xs); }
       .who__inner { grid-template-columns: 1fr; }
       .quality__grid { grid-template-columns: repeat(2, 1fr); }
       .footer__grid { grid-template-columns: 1fr 1fr; }
@@ -1012,7 +1037,7 @@
       .footer__grid { grid-template-columns: 1fr; }
       .topbar__contact { flex-direction: column; gap: 4px; }
       .who__stats { grid-template-columns: 1fr; gap: 12px; }
-      .who__stat-num { font-size: 22px; }
+      .who__stat-num { font-size: var(--text-lg); }
       .who__stat { display: flex; align-items: baseline; gap: 8px; text-align: left; }
     }
   </style>
@@ -1077,10 +1102,10 @@
 </header>
 <nav class="mobile-nav" id="mobile-nav">
   <a href="#services">Services</a>
-  <a href="roofing.html" style="padding-left:36px;font-size:12px;opacity:0.75">Roofing</a>
-  <a href="siding.html" style="padding-left:36px;font-size:12px;opacity:0.75">Siding</a>
-  <a href="windows.html" style="padding-left:36px;font-size:12px;opacity:0.75">Windows &amp; Doors</a>
-  <a href="gutters.html" style="padding-left:36px;font-size:12px;opacity:0.75">Gutters</a>
+  <a href="roofing.html" style="padding-left:36px;font-size:var(--text-sm);opacity:0.75">Roofing</a>
+  <a href="siding.html" style="padding-left:36px;font-size:var(--text-sm);opacity:0.75">Siding</a>
+  <a href="windows.html" style="padding-left:36px;font-size:var(--text-sm);opacity:0.75">Windows &amp; Doors</a>
+  <a href="gutters.html" style="padding-left:36px;font-size:var(--text-sm);opacity:0.75">Gutters</a>
   <a href="#about">About</a>
   <a href="contact.html">Contact</a>
   <a href="contact.html">Free Assessment</a>
@@ -1099,52 +1124,53 @@
 
 <!-- ═══ SERVICES ══════════════════════════════════════════════════ -->
 <section class="services" id="services">
+  <div class="services__deco"></div>
   <div class="container">
     <div class="services__header">
       <h2 class="section-title section-title--center">Our Services</h2>
-      <p style="color:var(--gray-mid);max-width:720px;margin:0 auto;font-size:22px;">From full roof replacements to new windows and gutters, we handle every project with the precision and care your home deserves.</p>
+      <p style="color:var(--gray-mid);max-width:720px;margin:0 auto;font-size:var(--text-lg);">From full roof replacements to new windows and gutters, we handle every project with the precision and care your home deserves.</p>
     </div>
     <div class="services__grid">
 
       <!-- Roofing -->
-      <div class="service-card">
+      <a class="service-card" href="roofing.html">
         <div class="service-card__icon">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 13h1v7c0 .55.45 1 1 1h14c.55 0 1-.45 1-1v-7h1c.4 0 .75-.24.91-.6.16-.37.07-.8-.21-1.07l-9-9c-.39-.39-1.03-.39-1.42 0l-9 9c-.28.28-.37.71-.2 1.08.16.37.51.59.91.59z"/></svg>
         </div>
         <h3 class="service-card__title">Roofing</h3>
-        <p class="service-card__desc">Complete roof replacements, repairs, and new installations using the highest-quality materials available.</p>
-        <a href="roofing.html" class="btn btn--blue" style="font-size:11px;padding:9px 20px;">Learn More</a>
-      </div>
+        <p class="service-card__desc">Repairs, replacements, new installs.</p>
+        <span class="service-card__arrow">Learn More <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+      </a>
 
       <!-- Siding -->
-      <div class="service-card">
+      <a class="service-card" href="siding.html">
         <div class="service-card__icon">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2 6h20v2H2zm0 4h20v2H2zm0 4h20v2H2zm0 4h20v2H2z"/></svg>
         </div>
         <h3 class="service-card__title">Siding</h3>
-        <p class="service-card__desc">Durable, beautiful siding solutions that protect your home from the elements while elevating its appearance.</p>
-        <a href="siding.html" class="btn btn--blue" style="font-size:11px;padding:9px 20px;">Learn More</a>
-      </div>
+        <p class="service-card__desc">Durable protection, refreshed look.</p>
+        <span class="service-card__arrow">Learn More <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+      </a>
 
       <!-- Windows & Doors -->
-      <div class="service-card">
+      <a class="service-card" href="windows.html">
         <div class="service-card__icon">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-7-2h2V7h-2v10zm-4 0h2V7H8v10zm8 0h2V7h-2v10z"/></svg>
         </div>
         <h3 class="service-card__title">Windows &amp; Doors</h3>
-        <p class="service-card__desc">Energy-efficient window and door installations that enhance curb appeal and reduce heating costs.</p>
-        <a href="windows.html" class="btn btn--blue" style="font-size:11px;padding:9px 20px;">Learn More</a>
-      </div>
+        <p class="service-card__desc">Efficient installs, better curb appeal.</p>
+        <span class="service-card__arrow">Learn More <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+      </a>
 
       <!-- Gutters -->
-      <div class="service-card">
+      <a class="service-card" href="gutters.html">
         <div class="service-card__icon">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 18H3c-1.1 0-2-.9-2-2v-1h22v1c0 1.1-.9 2-2 2zm1-5H2V5c0-1.1.9-2 2-2h16c1.1 0 2 .9 2 2v8z"/></svg>
         </div>
         <h3 class="service-card__title">Gutters</h3>
-        <p class="service-card__desc">Seamless gutter installation and cleaning to protect your foundation from water damage year-round.</p>
-        <a href="gutters.html" class="btn btn--blue" style="font-size:11px;padding:9px 20px;">Learn More</a>
-      </div>
+        <p class="service-card__desc">Install, clean, protect year-round.</p>
+        <span class="service-card__arrow">Learn More <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+      </a>
 
     </div>
   </div>
@@ -1401,7 +1427,7 @@
       <span class="cta-banner__divider"></span>
       <h2 class="cta-banner__title">Get Started with a Free Roofing Assessment</h2>
       <p class="cta-banner__sub">No pressure. No obligation. Just an honest evaluation from the most trusted roofing team in WV, VA &amp; MD.</p>
-      <a href="contact.html" class="btn btn--gold" style="font-size:14px;padding:16px 40px;">Schedule My Free Assessment</a>
+      <a href="contact.html" class="btn btn--gold" style="font-size:var(--text-md);padding:16px 40px;">Schedule My Free Assessment</a>
     </div>
   </div>
 </section>
